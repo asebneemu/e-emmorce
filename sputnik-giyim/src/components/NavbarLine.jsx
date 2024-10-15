@@ -13,7 +13,7 @@ export default function NavbarLine() {
             <FiPhone className="w-5 h-5" /> {/* Telefon ikonu */}
             <p className="text-base font-medium">0542 548 51 88</p> {/* Telefon numarası */}
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 md:ml-5">
             <FiMail className="w-5 h-5" /> {/* Mail ikonu */}
             <p className="text-base font-medium">sebnemucak.a@gmail.com</p> {/* Mail adresi */}
           </div>
@@ -21,7 +21,7 @@ export default function NavbarLine() {
 
         {/* İkinci div: sadece bir p */}
         <div className="w-1/3 text-center">
-          <p className="text-lg font-medium">Follow Us and get a chance to win 80% off</p> {/* Yazı boyutunu text-lg yaptık */}
+          <p className="text-sm font-medium">Follow Us and get a chance to win 80% off</p> {/* Yazı boyutunu text-lg yaptık */}
         </div>
 
         {/* Üçüncü div: bir p ve içinde butonlar olan bir div */}

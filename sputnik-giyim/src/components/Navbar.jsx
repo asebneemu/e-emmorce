@@ -9,7 +9,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="4xs:min-h-auto 4xs:flex 4xs:flex-col 4xs:items-center p-4 2xs:w-[540px] 2xs:mx-auto md:hidden 2xs:w-full">
+        <div className="4xs:min-h-auto 4xs:flex 4xs:flex-col 4xs:items-center p-4 2xs:w-[540px] 2xs:mx-auto md:hidden 2xs:w-full mb-10">
             {/* 2xs için genişlik ve yatayda ortalama (mx-auto) */}
             
             <div className="bg-white p-4 rounded-lg shadow-md 4xs:flex 4xs:items-center 4xs:justify-between 4xs:w-full">
@@ -17,14 +17,14 @@ export default function Navbar() {
                 
                 {/* H3 içeren div */}
                 <div className="mb-4 4xs:mb-0">
-                    <h3 className="text-4xl font-bold">Sputnik</h3>
+                    <h3 className="text-2xl font-bold">Sputnik</h3>
                 </div>
 
                 {/* 4 ikon içeren div */}
                 <div className="flex space-x-4 mb-4 4xs:mb-0 items-center">
-                    <FiUser className="w-8 h-8" />
-                    <FiSearch className="w-8 h-8" />
-                    <FiShoppingCart className="w-8 h-8" />
+                    <FiUser className="w-6 h-6" />
+                    <FiSearch className="w-6 h-6" />
+                    <FiShoppingCart className="w-6 h-6" />
                 </div>
 
                 {/* Üç çizgiden oluşan menü divi */}
@@ -38,10 +38,10 @@ export default function Navbar() {
             {/* Menü tıklandığında açılacak butonlar */}
             {menuOpen && (
                 <div className="mt-4 flex flex-col space-y-2 mt-10 gap-4">
-                    <button className="text-gray-400 text-3xl font-bold p-2 rounded">Home</button>
-                    <button className="text-gray-400 text-3xl font-bold p-2 rounded">Product</button>
-                    <button className="text-gray-400 text-3xl font-bold p-2 rounded">Pricing</button>
-                    <button className="text-gray-400 text-3xl font-bold p-2 rounded">Contact</button>
+                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Home</button>
+                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Product</button>
+                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Pricing</button>
+                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Contact</button>
                 </div>
             )}
         </div>
