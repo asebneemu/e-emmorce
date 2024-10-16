@@ -1,4 +1,5 @@
 import './App.css'
+import Bestsellers from './components/Bestsellers';
 import Cards from './components/Cards';
 import Header from './components/Header';
 import IconGrid from './components/IconGrid';
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <IconGrid />
       <Cards />
+      <Bestsellers />
     </div>
   )
 }

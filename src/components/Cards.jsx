@@ -13,7 +13,7 @@ const Cards = () => {
       </div>
 
       {/* İki Card'ı saran div */}
-      <div className="flex flex-col w-full 4xs:items-center md:w-1/2 h-full space-y-10 md:space-y-0">
+      <div className="flex flex-col w-full 4xs:items-center md:w-1/2 h-full space-y-10 md:space-y-4">
         <Card
           imageSrc="pictures/uciki.png" 
           title="Another Top Product" 
