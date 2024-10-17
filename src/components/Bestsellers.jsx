@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Bestseller from './Bestseller'; // Bestseller componentini içe aktarıyoruz
 import bestsellersData from '../data'; // Data dosyasını içe aktarıyoruz
 
@@ -20,7 +20,7 @@ export default function Bestsellers() {
         }
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         setInitialVisibleCount();
         window.addEventListener('resize', setInitialVisibleCount);
         return () => window.removeEventListener('resize', setInitialVisibleCount);

@@ -6,6 +6,9 @@ import IconGrid from './components/IconGrid';
 import Navbar from './components/Navbar';
 import NavbarLine from './components/NavbarLine';
 import RealNavbar from './components/RealNavbar';
+import WhatWeDo from "./components/WhatWeDo"
+import FeaturedProducts from './components/FeaturedProducts';
+import FeaturedPosts from './components/FeaturedPosts';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
       <IconGrid />
       <Cards />
       <Bestsellers />
+      <WhatWeDo />
+      <FeaturedProducts />
+      <FeaturedPosts />
     </div>
   )
 }
