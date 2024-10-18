@@ -9,6 +9,9 @@ import RealNavbar from './components/RealNavbar';
 import WhatWeDo from "./components/WhatWeDo"
 import FeaturedProducts from './components/FeaturedProducts';
 import FeaturedPosts from './components/FeaturedPosts';
+import SputnikFooter from './components/SputnikFooter';
+import ContactSection from './components/ContactSection';
+import FooterLastPart from './components/FooterLastPart';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
       <WhatWeDo />
       <FeaturedProducts />
       <FeaturedPosts />
+      <SputnikFooter />
+      <ContactSection />
+      <FooterLastPart />
     </div>
   )
 }
