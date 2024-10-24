@@ -1,9 +1,13 @@
 // eslint-disable-next-line react/prop-types
-export default function Bestseller({ image, title, description, oldPrice, newPrice }) {
+export default function Bestseller({ id, image, title, description, oldPrice, newPrice }) {
     return (
         <div className="flex flex-col items-center p-4 bg-white rounded-lg">
             {/* Ürün resmi */}
-            <img src={image} alt="Product" className="w-full h-auto mb-4 rounded" />
+            <img 
+                src={image} 
+                alt="Product" 
+                className="w-full h-[230px] object-cover mb-4 rounded" 
+            />
 
             {/* Ürün bilgileri */}
             <p className="text-xl font-semibold mb-2 text-center">{title}</p>

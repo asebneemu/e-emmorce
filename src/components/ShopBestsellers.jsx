@@ -1,28 +1,11 @@
 import { useState, useEffect } from 'react';
 import ShopBestseller from './ShopBestseller'; // Bestseller componentini içe aktarıyoruz
-import { getShopBestsellersData } from '@/data';
+import { shopBestsellersData } from "../data";
 
 export default function ShopBestsellers() {
     const itemsPerPage = 12; // Her sayfada gösterilecek ürün sayısı
-    const totalPages = Math.ceil(getShopBestsellersData.length / itemsPerPage); // Toplam sayfa sayısı
+    const totalPages = Math.ceil(shopBestsellersData.length / itemsPerPage); // Toplam sayfa sayısı
     const [currentPage, setCurrentPage] = useState(1); // Mevcut sayfa
-
-    // Ekran boyutuna göre başlangıç item sayısını ayarlayan fonksiyon
-    const setInitialVisibleCount = () => {
-        if (window.innerWidth >= 1280) { // xl ve üstü
-            setCurrentPage(1); 
-        } else if (window.innerWidth >= 768) { // md ve lg
-            setCurrentPage(1);
-        } else { // sm ve altı
-            setCurrentPage(1);
-        }
-    };
-
-    useEffect(() => {
-        setInitialVisibleCount();
-        window.addEventListener('resize', setInitialVisibleCount);
-        return () => window.removeEventListener('resize', setInitialVisibleCount);
-    }, []);
 
     // Sayfa değiştirme fonksiyonu
     const changePage = (pageNumber) => {
@@ -63,14 +46,11 @@ export default function ShopBestsellers() {
                 </div>
 
                 {/* İkinci div: Bestseller componentlerini içerir */}
-                <div className={`grid gap-6 
-                    ${window.innerWidth >= 1280 ? 'grid-cols-4 mx-60' : ''} 
-                    ${window.innerWidth >= 768 && window.innerWidth < 1280 ? 'grid-cols-2 mx-20' : ''}
-                    ${window.innerWidth < 768 ? 'grid-cols-1' : ''}
-                `}>
-                    {getShopBestsellersData.slice(startIndex, endIndex).map((product) => (
+                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                    {shopBestsellersData.slice(startIndex, endIndex).map((product) => (
                         <ShopBestseller
                             key={product.id}
+                            id={product.id}
                             image={product.image}
                             title={product.title}
                             description={product.description}

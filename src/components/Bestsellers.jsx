@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Bestseller from './Bestseller'; // Bestseller componentini içe aktarıyoruz
-import bestsellersData from '../data'; // Data dosyasını içe aktarıyoruz
+import { bestsellersData } from '../data'; // Data dosyasını içe aktarıyoruz
 
 export default function Bestsellers() {
     const [visibleCount, setVisibleCount] = useState(5);
@@ -53,6 +53,7 @@ export default function Bestsellers() {
                     {bestsellersData.slice(0, visibleCount).map((product) => (
                         <Bestseller
                             key={product.id}
+                            id={product.id}
                             image={product.image}
                             title={product.title}
                             description={product.description}
