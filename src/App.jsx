@@ -1,36 +1,18 @@
-import './App.css'
-import Bestsellers from './components/Bestsellers';
-import Cards from './components/Cards';
-import Header from './components/Header';
-import IconGrid from './components/IconGrid';
-import Navbar from './components/Navbar';
-import NavbarLine from './components/NavbarLine';
-import RealNavbar from './components/RealNavbar';
-import WhatWeDo from "./components/WhatWeDo"
-import FeaturedProducts from './components/FeaturedProducts';
-import FeaturedPosts from './components/FeaturedPosts';
-import SputnikFooter from './components/SputnikFooter';
-import ContactSection from './components/ContactSection';
-import FooterLastPart from './components/FooterLastPart';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+import ShopPage from './ShopPage';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <NavbarLine />
-      <RealNavbar />
-      <Header />
-      <IconGrid />
-      <Cards />
-      <Bestsellers />
-      <WhatWeDo />
-      <FeaturedProducts />
-      <FeaturedPosts />
-      <SputnikFooter />
-      <ContactSection />
-      <FooterLastPart />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path='/home-page' element={<HomePage />} />
+        <Route path="/shop-page" element={<ShopPage />} />
+        {/* Diğer rotalar */}
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

@@ -5,7 +5,7 @@ export default function NavbarLine() {
   return (
     <div className="hidden md:flex justify-center items-center h-full w-full px-0">
       {/* Sayfanın ortasında duran dış div */}
-      <div className="flex justify-between items-center w-full p-4 shadow-md px-10 bg-[#252B42] text-white">
+      <div className="flex justify-between items-center w-full p-4 shadow-md px-10 bg-[#23856D] text-white">
 
         {/* İlk div: iki alt div, her birinde bir ikon ve p olacak */}
         <div className="flex md:flex-col 1190:flex-row md:items-start md:text-left 1190:items-center space-x-4 w-1/3 gap-4">

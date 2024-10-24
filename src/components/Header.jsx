@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
     return (
         <div className="flex justify-center items-center h-auto min-h-screen mb-10">
@@ -13,9 +15,11 @@ export default function Header() {
                             will act, but things on a
                             small scale.
                         </p>
-                        <button className="text-3xl font-bold w-[220px] h-[60px] mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                            SHOP NOW
-                        </button>
+                        <Link to="/shop-page">
+                            <button className="text-3xl font-bold w-[220px] h-[60px] mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                                SHOP NOW
+                            </button>
+                        </Link>
                     </div>
 
                     {/* Yeni eklenen div */}

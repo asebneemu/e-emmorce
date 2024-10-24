@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'; // FontAwes
 
 const SputnikFooter = () => {
   return (
-    <div className="w-full bg-gray-100 py-10 my-16">
+    <div className="w-full bg-green-100 py-10 my-16">
       {/* İç Div */}
       <div className="w-[80%] mx-auto flex flex-col md:flex-row md:justify-between md:items-center py-4">
         {/* Başlık */}
