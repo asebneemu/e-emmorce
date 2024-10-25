@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FiUser, FiSearch } from 'react-icons/fi';
-import ShoppingCartButton from './Buttons/ShoppingCartButton';
 import { Link } from "react-router-dom"
 import SepetimButtonu from './Buttons/SepetimButton';
 
@@ -50,9 +49,13 @@ export default function Navbar() {
                     <Link to="/about-page">
                         <button className="text-gray-400 text-2xl font-bold p-2 rounded">About</button>
                     </Link>
-                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Product</button>
+                    <Link to="/team-page">
+                        <button className="text-gray-400 text-2xl font-bold p-2 rounded">Team</button>
+                    </Link>
                     <button className="text-gray-400 text-2xl font-bold p-2 rounded">Pricing</button>
-                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Contact</button>
+                    <Link to="/contact-page">
+                        <button className="text-gray-400 text-2xl font-bold p-2 rounded">Contact</button>
+                    </Link>
                 </div>
             )}
         </div>

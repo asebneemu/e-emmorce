@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Bestseller from './Bestseller'; // Bestseller componentini içe aktarıyoruz
-import { bestsellersData } from '../data'; // Data dosyasını içe aktarıyoruz
+import { bestsellersData } from '../../data'; // Data dosyasını içe aktarıyoruz
 
 export default function Bestsellers() {
     const [visibleCount, setVisibleCount] = useState(5);

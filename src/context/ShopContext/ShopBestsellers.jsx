@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ShopBestseller from './ShopBestseller'; // Bestseller componentini içe aktarıyoruz
-import { shopBestsellersData } from "../data";
+import { shopBestsellersData } from "../../data";
 
 export default function ShopBestsellers() {
     const itemsPerPage = 12; // Her sayfada gösterilecek ürün sayısı

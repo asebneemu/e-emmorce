@@ -2,9 +2,9 @@ const ContactSection = () => {
     return (
         <div className="w-[80%] mx-auto py-14">
             {/* İçerik Bölümü */}
-            <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex gap-10 md:flex-row 3xs:flex-col">
                 {/* İlk dört div - Başlıklar ve Paragraflar */}
-                <div className="flex flex-col gap-4 md:w-1/4">
+                <div className="flex flex-col gap-4 w-full md:w-1/4">
                     <h2 className="text-xl font-semibold">Company Info</h2>
                     <p>About Us</p>
                     <p>Careers</p>
@@ -12,7 +12,7 @@ const ContactSection = () => {
                     <p>Blog</p>
                 </div>
 
-                <div className="flex flex-col gap-4 md:w-1/4">
+                <div className="flex flex-col gap-4 w-full md:w-1/4">
                     <h2 className="text-xl font-semibold">Legal</h2>
                     <p>Terms of Service</p>
                     <p>Privacy Policy</p>
@@ -20,7 +20,7 @@ const ContactSection = () => {
                     <p>Security</p>
                 </div>
 
-                <div className="flex flex-col gap-4 md:w-1/4">
+                <div className="flex flex-col gap-4 w-full md:w-1/4">
                     <h2 className="text-xl font-semibold">Features</h2>
                     <p>Feature 1</p>
                     <p>Feature 2</p>
@@ -28,7 +28,7 @@ const ContactSection = () => {
                     <p>Feature 4</p>
                 </div>
 
-                <div className="flex flex-col gap-4 md:w-1/4">
+                <div className="flex flex-col gap-4 w-full md:w-1/4">
                     <h2 className="text-xl font-semibold">Resources</h2>
                     <p>Documentation</p>
                     <p>API Reference</p>
@@ -37,7 +37,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Beşinci div - Get in Touch */}
-                <div className="flex flex-col gap-4 md:w-1/4">
+                <div className="flex flex-col gap-4 w-full md:w-1/4">
                     <h2 className="text-xl font-semibold">Get in Touch</h2>
                     <div className="flex">
                         <input

@@ -1,4 +1,4 @@
-import resim from "../assets/pictures/ucbir.png";
+import resim from "../../assets/pictures/ucbir.png";
 
 export default function TwoColumnSection() {
     return (

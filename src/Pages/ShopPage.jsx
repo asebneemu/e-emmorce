@@ -1,5 +1,5 @@
-import ShopBestsellers from "../components/ShopBestsellers";
-import ByChotles from "../components/ByChotles";
+import ShopBestsellers from "../context/ShopContext/ShopBestsellers";
+import ByChotles from "../context/ShopContext/ByChotles";
 import ContactSection from "../components/ContactSection";
 import FooterLastPart from "../components/FooterLastPart";
 import IconGrid from "../components/IconGrid";

@@ -1,4 +1,3 @@
-import React from 'react';
 import SepetimCartItem from './SepetimCartItem'; // Her bir ürün için kullanılacak bileşen
 
 export default function SepetimCart({ cartItems }) {

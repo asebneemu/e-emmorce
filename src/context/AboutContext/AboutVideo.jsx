@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";  // Oynatma ve duraklatma ikonları
-import video from "../assets/about-video.mp4"
+import video from "../../assets/about-video.mp4"
 
 export default function AboutVideo() {
     const videoRef = useRef(null);  // Video referansı

@@ -1,6 +1,5 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../store/cartSlice';  // removeFromCart action'ını içe aktarıyoruz
+import { removeFromCart } from '../../store/cartSlice';  // removeFromCart action'ını içe aktarıyoruz
 import { FaTimes } from 'react-icons/fa';  // Çarpı (X) ikonu için
 
 // eslint-disable-next-line react/prop-types
@@ -9,12 +8,12 @@ export default function SepetimCartItem({ id, image, title, description, oldPric
 
     // Ürünü sepetten çıkarma fonksiyonu
     const handleRemove = () => {
-        console.log("Removing item with ID:");  // `id`'yi kontrol ediyoruz
+        console.log("Removing item with ID:", id);  // `id`'yi kontrol ediyoruz
         dispatch(removeFromCart(id));  // Ürünü id'sine göre sepetten çıkar
     };
 
     return (
-        <div className="relative w-[20%] flex flex-col items-start p-4 bg-white rounded-lg mb-4">
+        <div className="relative w-full 3xs:w-[45%] md:w-[22%] flex flex-col items-start p-4 bg-white rounded-lg mb-4">
             <div className="w-full h-64 mb-4 rounded overflow-hidden">
                 <img
                     src={image}

@@ -1,12 +1,37 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // localStorage kullanımı için
 import cartReducer from './cartSlice';
-import favoritesReducer from './favoritesSlice'; // Favoriler slice'ı
+import favoritesReducer from './favoritesSlice';
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
-export const store = configureStore({
-  reducer: {
-    cart: cartReducer,
-    favorites: favoritesReducer, // Favoriler slice'ını Redux store'a ekliyoruz
-  },
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const rootReducer = combineReducers({
+  cart: cartReducer,
+  favorites: favoritesReducer,
 });
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);

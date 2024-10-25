@@ -1,7 +1,7 @@
-import NavbarButtons from './Buttons/NavbarButtons';
-import AuthButton from './Buttons/AuthButton';
-import BecomeMemberButton from './Buttons/BecomeMemberButton';
-import SepetimButtonu from './Buttons/SepetimButton';
+import NavbarButtons from '../../components/Buttons/NavbarButtons';
+import AuthButton from '../../components/Buttons/AuthButton';
+import BecomeMemberButton from '../../components/Buttons/BecomeMemberButton';
+import SepetimButtonu from '../../components/Buttons/SepetimButton';
 
 export default function RealNavbar() {
     return (

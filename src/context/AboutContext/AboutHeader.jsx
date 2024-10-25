@@ -1,5 +1,5 @@
 
-import resim from "../assets/pictures/about-logo.png"
+import resim from "../../assets/pictures/about-logo.png"
 
 export default function AboutHeader() {
     return (

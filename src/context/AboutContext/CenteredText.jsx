@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function CenteredText() {
     return (
         <div className="w-full h-auto flex flex-col justify-center items-center my-20">

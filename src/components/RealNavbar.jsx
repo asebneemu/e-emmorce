@@ -25,7 +25,6 @@ export default function RealNavbar() {
 
                     {/* İkinci div: 3 ikon içeren div */}
                     <div className="flex lg:space-x-2 1190:gap-16 text-[#23A6F0]">
-                        <BulButtonu />
                         <SepetimButtonu />
                         <FavorilerButtonu />
                     </div>

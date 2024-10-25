@@ -1,5 +1,5 @@
-import resimBir from "../assets/pictures/whatwedo/wwd1.jfif";
-import resimIki from "../assets/pictures/whatwedo/wwd2.jfif";
+import resimBir from "../../assets/pictures/whatwedo/wwd1.jfif";
+import resimIki from "../../assets/pictures/whatwedo/wwd2.jfif";
 
 const WhatWeDo = () => {
   return (

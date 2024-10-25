@@ -24,9 +24,9 @@ export default function DropdownButtons() {
             {/* Dropdown menü: Butonlar açıldığında görünür olacak */}
             {isOpen && (
                 <div className="absolute mt-2 bg-white shadow-lg rounded-lg p-2 z-10 min-w-max">
-                    <button className="p-2 text-gray-700 text-xl font-bold rounded w-full text-left">Option 1</button>
-                    <button className="p-2 text-gray-700 text-xl font-bold rounded w-full text-left">Longer Option 2</button> {/* Daha uzun seçenek */}
-                    <button className="p-2 text-gray-700 text-xl font-bold rounded w-full text-left">Option 3</button>
+                    <Link to="/sepetim-page" className="block p-2 text-gray-700 text-xl font-bold rounded w-full text-left">Sepetim</Link>
+                    <Link to="/sepetim-page#favoriler" className="block p-2 text-gray-700 text-xl font-bold rounded w-full text-left">Favoriler</Link>
+                    <button className="p-2 text-gray-700 text-xl font-bold rounded w-full text-left">Siparişlerim</button>
                 </div>
             )}
         </div>

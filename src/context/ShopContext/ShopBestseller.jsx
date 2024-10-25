@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../store/cartSlice';  // Sepete ekleme işlemi için action
-import { addToFavorites, removeFromFavorites } from '../store/favoritesSlice';  // Favorilere ekleme ve çıkarma işlemi
+import { addToCart } from '../../store/cartSlice';  // Sepete ekleme işlemi için action
+import { addToFavorites, removeFromFavorites } from '../../store/favoritesSlice';  // Favorilere ekleme ve çıkarma işlemi
 import { FiHeart } from 'react-icons/fi';  // Kalp ikonu
 
 export default function ShopBestseller({ id, image, title, description, oldPrice, newPrice }) {

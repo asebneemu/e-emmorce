@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FiHeart } from 'react-icons/fi';
-import { removeFromFavorites, addToFavorites } from '../store/favoritesSlice';  // Favorilere ekleme ve çıkarma işlemi
-import { addToCart } from '../store/cartSlice';  // Sepete ekleme işlemi için action
+import { removeFromFavorites, addToFavorites } from '../../store/favoritesSlice';  // Favorilere ekleme ve çıkarma işlemi
+import { addToCart } from '../../store/cartSlice';  // Sepete ekleme işlemi için action
 
 export default function Favori({ id, image, title, description, oldPrice, newPrice }) {
     const dispatch = useDispatch();
