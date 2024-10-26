@@ -98,5 +98,43 @@ const teamData = [
 ];
 
 
+// data.js
+const pricingData = [
+  {
+    title: 'FREE',
+    price: '$0',
+    frequency: 'Per Month',
+    features: [
+      { text: 'Unlimited product updates', included: true },
+      { text: '1GB Cloud storage', included: false },
+      { text: 'Email and community support', included: false },
+    ],
+    isNew: false,
+  },
+  {
+    title: 'Silver',
+    price: '$9.99',
+    frequency: 'Per Month',
+    features: [
+      { text: 'Unlimited product updates', included: true },
+      { text: '1GB Cloud storage', included: true },
+      { text: 'Email and community support', included: true },
+    ],
+    isNew: true,
+  },
+  {
+    title: 'Gold',
+    price: '$19.99',
+    frequency: 'Per Month',
+    features: [
+      { text: 'Unlimited product updates', included: true },
+      { text: '1GB Cloud storage', included: true },
+      { text: 'Email and community support', included: true },
+    ],
+    isNew: false,
+  },
+];
+
+
 // Her iki veri setini export ediyoruz
-export { bestsellersData, shopBestsellersData, teamData };
+export { bestsellersData, shopBestsellersData, teamData, pricingData };

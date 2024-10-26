@@ -8,6 +8,8 @@ import ContactPage from './Pages/ContactPage';
 import LoginPage from './Pages/LoginPage';
 import MemberPage from './Pages/MemberPage';
 import TeamPage from './Pages/TeamPage';
+import PricingPage from "./Pages/PricingPage"
+import ProductPage from './Pages/ProductPage';
 
 function App() {
   
@@ -24,6 +26,8 @@ function App() {
         <Route path="/login-page" element={<LoginPage />} />
         <Route path="/member-page" element={<MemberPage />} />
         <Route path="/team-page" element={<TeamPage />} />
+        <Route path="/pricing-page" element={<PricingPage />} />
+        <Route path="/product-page/:id" element={<ProductPage />} />
       </Routes>
     </Router>
   );

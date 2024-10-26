@@ -52,7 +52,9 @@ export default function Navbar() {
                     <Link to="/team-page">
                         <button className="text-gray-400 text-2xl font-bold p-2 rounded">Team</button>
                     </Link>
-                    <button className="text-gray-400 text-2xl font-bold p-2 rounded">Pricing</button>
+                    <Link to="/pricing-page">
+                        <button className="text-gray-400 text-2xl font-bold p-2 rounded">Pricing</button>
+                    </Link>
                     <Link to="/contact-page">
                         <button className="text-gray-400 text-2xl font-bold p-2 rounded">Contact</button>
                     </Link>

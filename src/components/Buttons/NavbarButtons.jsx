@@ -9,7 +9,7 @@ export default function NavbarButtons() {
             <DropdownButtons /> {/* Shop butonunu yeni component ile değiştirdik */}
             <Link to="/about-page" className='p-2 text-gray-700 text-lg font-bold rounded'>About</Link>
             <Link to="/team-page" className='p-2 text-gray-700 text-lg font-bold rounded'>Team</Link>
-            <button className="text-gray-700 text-lg font-bold p-2 rounded">Pricing</button>
+            <Link to="/pricing-page" className='p-2 text-gray-700 text-lg font-bold rounded'>Pricing</Link>
             <Link to="/contact-page" className='p-2 text-gray-700 text-lg font-bold rounded'>Contact</Link>
         </div>
     );
