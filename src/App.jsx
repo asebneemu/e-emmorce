@@ -10,6 +10,7 @@ import MemberPage from './Pages/MemberPage';
 import TeamPage from './Pages/TeamPage';
 import PricingPage from "./Pages/PricingPage"
 import ProductPage from './Pages/ProductPage';
+import UserPage from './Pages/UserPage';
 
 function App() {
   
@@ -17,17 +18,18 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login-page" element={<LoginPage />} />
+        <Route path="/member-page" element={<MemberPage />} />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/shop-page" element={<ShopPage />} />
         <Route path="/sepetim-page" element={<SepetimPage />} />
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/sepetim-page#favoriler" element={<Favoriler />} />
         <Route path="/contact-page" element={<ContactPage />} />
-        <Route path="/login-page" element={<LoginPage />} />
-        <Route path="/member-page" element={<MemberPage />} />
         <Route path="/team-page" element={<TeamPage />} />
         <Route path="/pricing-page" element={<PricingPage />} />
         <Route path="/product-page/:id" element={<ProductPage />} />
+        <Route path="/user-page" element={<UserPage />} />
       </Routes>
     </Router>
   );

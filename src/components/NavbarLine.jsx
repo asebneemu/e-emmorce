@@ -4,12 +4,7 @@ import User from './User';
 import React, { useEffect, useState } from "react";
 
 export default function NavbarLine() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedInStatus);
-  }, []);
 
   return (
     <div className="hidden md:flex justify-center items-center h-full w-full px-0">
@@ -27,10 +22,7 @@ export default function NavbarLine() {
           </div>
         </div>
 
-        {/* Ortadaki div: Koşullu olarak `User` bileşeni */}
-        <div className="w-1/3 text-center">
-          {isLoggedIn && <User />}
-        </div>
+
 
         {/* Sağdaki div: Sosyal Medya Takip İkonları */}
         <div className="flex items-center w-1/3 justify-end mr-5 md:gap-x-6">

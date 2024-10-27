@@ -1,39 +1,25 @@
-import React, { useEffect, useState } from "react";
+// src/components/User.js
+
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const User = () => {
-  const [userInfo, setUserInfo] = useState({ firstName: "", lastName: "" });
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
-  useEffect(() => {
-    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedInStatus);
-
-    if (loggedInStatus) {
-      const firstName = localStorage.getItem("firstName") || "";
-      const lastName = localStorage.getItem("lastName") || "";
-      setUserInfo({ firstName, lastName });
-    }
-  }, []);
-
-  if (!isLoggedIn) {
-    return null;
-  }
+  console.log("User Bileşeni - currentUser bilgisi:", currentUser); // Kontrol için
 
   return (
-    <div className="flex flex-col items-center">
-      {/* Siyah Çember */}
-      <div className="bg-black rounded-full w-16 h-16 flex items-center justify-center">
-        <span className="text-white text-lg font-bold">
-          {userInfo.firstName.charAt(0)}
-          {userInfo.lastName.charAt(0)}
-        </span>
+    <Link to="/user-page" className="flex items-center space-x-2">
+      <div
+        className="rounded-full bg-black text-white text-sm font-bold flex items-center justify-center"
+        style={{ width: "30px", height: "30px" }}
+      >
+        {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
       </div>
-      
-      {/* Kullanıcı Adı */}
-      <h1 className="text-xl font-bold mt-2">
-        {userInfo.firstName} {userInfo.lastName}
-      </h1>
-    </div>
+      <p className="text-lg font-semibold text-black">
+        {currentUser.firstName} {currentUser.lastName}
+      </p>
+    </Link>
   );
 };
 

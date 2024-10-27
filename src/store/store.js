@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // localStorage kullanımı için
+import storage from 'redux-persist/lib/storage';
 import cartReducer from './cartSlice';
 import favoritesReducer from './favoritesSlice';
+import authReducer from './authSlice'; // authSlice'ı içe aktarın
 import {
   FLUSH,
   REHYDRATE,
@@ -20,6 +21,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   cart: cartReducer,
   favorites: favoritesReducer,
+  auth: authReducer, // authReducer'ı rootReducer'a ekleyin
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
