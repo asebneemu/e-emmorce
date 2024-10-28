@@ -3,6 +3,8 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { login } from "../store/authSlice";
+import { setCart } from "../store/cartSlice"; // Sepeti güncellemek için
+import { setFavorites } from "../store/favoritesSlice"; // Favorileri güncellemek için
 import { useNavigate } from "react-router-dom";
 
 const MemberPage = () => {
@@ -11,27 +13,33 @@ const MemberPage = () => {
     const navigate = useNavigate();
 
     const onLogin = (data) => {
-        const savedEmail = localStorage.getItem("email") || null;
-        const savedPassword = localStorage.getItem("password") || null;
-
-        console.log("Kayıtlı email:", savedEmail); // Debugging için
-        console.log("Kayıtlı şifre:", savedPassword); // Debugging için
-        console.log("Girilen email:", data.email); // Debugging için
-        console.log("Girilen şifre:", data.password); // Debugging için
-
-        // Eğer email ve şifre eşleşiyorsa giriş yapma işlemi
-        if (data.email === savedEmail && data.password === savedPassword) {
+        // Kullanıcının email adresine göre `localStorage`'dan kayıtlı kullanıcı bilgilerini alıyoruz
+        const savedUser = JSON.parse(localStorage.getItem(`user_${data.email}`));
+    
+        // Eğer kullanıcı kayıtlıysa ve şifre doğruysa giriş işlemi yapılıyor
+        if (savedUser && data.password === savedUser.password) {
+            // Kullanıcı bilgilerini güncelle
             dispatch(login({
-                firstName: localStorage.getItem("firstName"),
-                lastName: localStorage.getItem("lastName"),
-                email: data.email,
-                phone: localStorage.getItem("phone")
+                firstName: savedUser.firstName,
+                lastName: savedUser.lastName,
+                email: savedUser.email,
+                phone: savedUser.phone
             }));
-            navigate("/home-page");
+    
+            // Kullanıcının email adresine özel kaydedilen sepet verisini yükle
+            const savedCart = JSON.parse(localStorage.getItem(`cart_${data.email}`)) || [];
+            dispatch(setCart(savedCart)); // Sepeti Redux store'a geri yükle
+    
+            // Kullanıcının email adresine özel kaydedilen favori verilerini yükle
+            const savedFavorites = JSON.parse(localStorage.getItem(`favorites_${data.email}`)) || [];
+            dispatch(setFavorites(savedFavorites)); // Favorileri Redux store'a geri yükle
+    
+            navigate("/home-page"); // Başarılı girişten sonra yönlendir
         } else {
             alert("Email veya şifre yanlış.");
         }
     };
+    
 
     return (
         <div className="flex flex-col items-center p-4">

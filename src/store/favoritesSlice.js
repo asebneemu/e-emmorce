@@ -13,9 +13,15 @@ export const favoritesSlice = createSlice({
     },
     removeFromFavorites: (state, action) => {
       state.favoriteItems = state.favoriteItems.filter(item => item.id !== action.payload);  // Ürünü favorilerden çıkar
+    },
+    clearFavorites: (state) => {
+      state.favoriteItems = [];  // Favorileri sıfırla
+    },
+    setFavorites: (state, action) => {
+      state.favoriteItems = action.payload;  // localStorage'dan gelen favori ürünleri yükle
     }
   }
 });
 
-export const { addToFavorites, removeFromFavorites } = favoritesSlice.actions;
+export const { addToFavorites, removeFromFavorites, clearFavorites, setFavorites } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

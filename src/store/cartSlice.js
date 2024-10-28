@@ -1,3 +1,5 @@
+// src/store/cartSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -12,10 +14,13 @@ export const cartSlice = createSlice({
       state.cartItems.push(action.payload);  // Ürünü sepete ekle
     },
     removeFromCart: (state, action) => {
-      console.log('Removing item with ID:', action.payload);  // `id`'yi konsola yazdır
-      // Sadece action.payload (id) ile eşleşmeyen ürünleri tut
       state.cartItems = state.cartItems.filter(item => item.id !== action.payload);
-      console.log('Remaining items:', state.cartItems);  // Kalan ürünleri kontrol et
+    },
+    clearCart: (state) => {
+      state.cartItems = [];  // Sepeti sıfırla
+    },
+    setCart: (state, action) => {
+      state.cartItems = action.payload; // localStorage'dan gelen ürünleri yükle
     },
   },
 });
@@ -24,5 +29,5 @@ export const cartSlice = createSlice({
 export const selectTotalItems = (state) => state.cart.cartItems.length;
 
 // Action'ları export ediyoruz
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, setCart } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -11,11 +11,15 @@ const LoginPage = () => {
     const navigate = useNavigate();
 
     const onRegister = (data) => {
-        // Kullanıcı bilgilerini `localStorage`'a kaydedin
-        localStorage.setItem("firstName", data.firstName);
-        localStorage.setItem("lastName", data.lastName);
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("password", data.password);
+        // Kullanıcı bilgilerini email adresine göre `localStorage`'a kaydediyoruz
+        const userData = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            password: data.password,
+            phone: data.phone
+        };
+        localStorage.setItem(`user_${data.email}`, JSON.stringify(userData));
 
         // Redux durumunu güncelleyin
         dispatch(login({
