@@ -1,4 +1,5 @@
 // src/store/authSlice.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -28,8 +29,12 @@ const authSlice = createSlice({
             localStorage.removeItem("currentUser");
             console.log("Çıkış yapıldı, isLoggedIn durumu:", state.isLoggedIn);
         },
+        updateUser: (state, action) => { // 4.1 Kullanıcı bilgilerini güncellemek için updateUser action'ı eklendi
+            state.currentUser = { ...state.currentUser, ...action.payload };
+            localStorage.setItem("currentUser", JSON.stringify(state.currentUser)); // 4.1 localStorage güncellemesi yapıldı
+        },
     },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, updateUser } = authSlice.actions; // 4.1 updateUser export edildi
 export default authSlice.reducer;
