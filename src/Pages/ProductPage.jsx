@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 import { shopBestsellersData } from '../data';
 import Product from "../context/ProductContext/Product"
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import SputnikFooter from "@/components/SputnikFooter";
+import ContactSection from "@/components/ContactSection";
+import FooterLastPart from "@/components/FooterLastPart";
 
 export default function ProductPage() {
     const { id } = useParams();
@@ -15,6 +18,9 @@ export default function ProductPage() {
             <NavbarLine />
             <RealNavbar />
             <Product product={product} />
+            <SputnikFooter />
+            <ContactSection />
+            <FooterLastPart />
             <ScrollToTopButton />
         </div>
     )

@@ -1,23 +1,41 @@
-const ContactSection = () => {
+import { Link } from "react-router-dom";
+
+export default function ContactSection() {
     return (
         <div className="w-[80%] mx-auto py-14">
             {/* İçerik Bölümü */}
             <div className="flex gap-10 md:flex-row 3xs:flex-col">
                 {/* İlk dört div - Başlıklar ve Paragraflar */}
                 <div className="flex flex-col gap-4 w-full md:w-1/4">
-                    <h2 className="text-xl font-semibold">Company Info</h2>
-                    <p>About Us</p>
-                    <p>Careers</p>
-                    <p>Press</p>
-                    <p>Blog</p>
+                    <h2 className="text-xl font-semibold">Pages</h2>
+                    <Link to="/home-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Home Page</p>
+                    </Link>
+                    <Link to="/shop-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Shop Page</p>
+                    </Link>
+                    <Link to="/sepetim-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Sepetim</p>
+                    </Link>
+                    <Link to="/sepetim-page#favoriler" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Favoriler</p>
+                    </Link>
                 </div>
 
                 <div className="flex flex-col gap-4 w-full md:w-1/4">
-                    <h2 className="text-xl font-semibold">Legal</h2>
-                    <p>Terms of Service</p>
-                    <p>Privacy Policy</p>
-                    <p>Cookie Policy</p>
-                    <p>Security</p>
+                    <h2 className="text-xl font-semibold">Pages</h2>
+                    <Link to="/about-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>About Page</p>
+                    </Link>
+                    <Link to="/team-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Team Page</p>
+                    </Link>
+                    <Link to="/pricing-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Pricing Page</p>
+                    </Link>
+                    <Link to="/contact-page" onClick={() => window.scrollTo(0, 0)}>
+                        <p>Contact Page</p>
+                    </Link>
                 </div>
 
                 <div className="flex flex-col gap-4 w-full md:w-1/4">
@@ -53,4 +71,4 @@ const ContactSection = () => {
     );
 };
 
-export default ContactSection;
+
