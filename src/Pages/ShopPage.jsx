@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import NavbarLine from "../components/NavbarLine";
 import RealNavbar from "../components/RealNavbar";
 import SputnikFooter from "../components/SputnikFooter";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 
 export default function ShopPage() {
@@ -21,6 +22,7 @@ export default function ShopPage() {
             <SputnikFooter />
             <ContactSection />
             <FooterLastPart />
+            <ScrollToTopButton />
         </div>
     )
 }

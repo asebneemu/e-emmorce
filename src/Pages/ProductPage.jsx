@@ -4,6 +4,7 @@ import RealNavbar from "@/components/RealNavbar";
 import { useParams } from 'react-router-dom';
 import { shopBestsellersData } from '../data';
 import Product from "../context/ProductContext/Product"
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function ProductPage() {
     const { id } = useParams();
@@ -14,6 +15,7 @@ export default function ProductPage() {
             <NavbarLine />
             <RealNavbar />
             <Product product={product} />
+            <ScrollToTopButton />
         </div>
     )
 }

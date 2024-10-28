@@ -1,17 +1,38 @@
 // src/pages/LoginPage.js
 
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { login } from "../store/authSlice";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify"; // Toastify importları
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        // Sayfa yüklenme kontrolü ve hata mesajı için async işlevi
+        const checkPageLoad = async () => {
+            try {
+                // Burada sayfanın yüklenmesi için yapılacak bir işlev koyabilirsiniz
+                // Eğer hata durumu simüle etmek istiyorsanız throw yeni bir Error() oluşturabilirsiniz
+                // throw new Error("Yüklenme hatası"); // Bu satır hata simülasyonu içindir
+            } catch (error) {
+                // Hata durumunda toast mesajını göster
+                toast.error("Şimdilik Hizmet Veremiyoruz, Üzgünüz!", {
+                    position: "top-center",
+                    autoClose: 3000,
+                });
+            }
+        };
+
+        checkPageLoad();
+    }, []);
+
     const onRegister = (data) => {
-        // Kullanıcı bilgilerini email adresine göre `localStorage`'a kaydediyoruz
         const userData = {
             firstName: data.firstName,
             lastName: data.lastName,
@@ -21,7 +42,6 @@ const LoginPage = () => {
         };
         localStorage.setItem(`user_${data.email}`, JSON.stringify(userData));
 
-        // Redux durumunu güncelleyin
         dispatch(login({
             firstName: data.firstName,
             lastName: data.lastName,
@@ -29,9 +49,12 @@ const LoginPage = () => {
             phone: data.phone
         }));
 
-        console.log("Kayıt başarılı, giriş yapıldı.");
+        toast.success("Ailemize Hoşgeldin!", {
+            position: "top-center",
+            autoClose: 3000,
+        });
 
-        // Ana sayfaya yönlendirme
+        console.log("Kayıt başarılı, giriş yapıldı.");
         navigate("/home-page");
     };
 
@@ -86,6 +109,7 @@ const LoginPage = () => {
                     Kayıt Ol
                 </button>
             </form>
+            <ToastContainer /> {/* Toast mesajlarını göstermek için */}
         </div>
     );
 };

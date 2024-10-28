@@ -1,11 +1,7 @@
 import { FaInstagram, FaYoutube, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { FiPhone, FiMail } from 'react-icons/fi';
-import User from './User';
-import React, { useEffect, useState } from "react";
 
 export default function NavbarLine() {
-
-
   return (
     <div className="hidden md:flex justify-center items-center h-full w-full px-0">
       <div className="flex justify-between items-center w-full p-4 shadow-md px-10 bg-[#23856D] text-white">
@@ -22,8 +18,6 @@ export default function NavbarLine() {
           </div>
         </div>
 
-
-
         {/* Sağdaki div: Sosyal Medya Takip İkonları */}
         <div className="flex items-center w-1/3 justify-end mr-5 md:gap-x-6">
           <p className="text-base font-medium">Follow us:</p>
@@ -34,12 +28,18 @@ export default function NavbarLine() {
               </button>
             </div>
             <div className="flex justify-center items-center">
-              <button className="p-2 rounded-full">
+              <button 
+                className="p-2 rounded-full" 
+                onClick={() => window.open("https://www.youtube.com/@Muratsoner", "_blank")}
+              >
                 <FaYoutube className="w-6 h-6" />
               </button>
             </div>
             <div className="flex justify-center items-center">
-              <button className="p-2 rounded-full">
+              <button 
+                className="p-2 rounded-full"
+                onClick={() => window.open("https://www.facebook.com/photo/?fbid=195243350644373&set=pob.100004761274268", "_blank")}
+              >
                 <FaFacebook className="w-6 h-6" />
               </button>
             </div>

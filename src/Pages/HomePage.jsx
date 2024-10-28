@@ -13,6 +13,7 @@ import RealNavbar from "../components/RealNavbar";
 import SputnikFooter from "../components/SputnikFooter";
 import WhatWeDo from "../context/HomeContext/WhatWeDo";
 import User from "../components/User"; // User bileşenini içe aktarın
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function HomePage() {
 
@@ -31,6 +32,7 @@ export default function HomePage() {
       <SputnikFooter />
       <ContactSection />
       <FooterLastPart />
+      <ScrollToTopButton />
     </div>
   );
 }
