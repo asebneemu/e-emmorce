@@ -11,7 +11,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="4xs:min-h-auto 4xs:flex 4xs:flex-col 4xs:items-center p-4 2xs:w-[540px] 2xs:mx-auto md:hidden 2xs:w-full mb-10">
+        <div className="4xs:min-h-auto 4xs:flex 4xs:flex-col 4xs:items-center p-4 2xs:w-[540px] 2xs:mx-auto md:hidden 2xs:w-full mb-10 fixed top-0 left-0 right-0 z-50">
             {/* 2xs için genişlik ve yatayda ortalama (mx-auto) */}
 
             <div className="bg-white p-4 rounded-lg shadow-md 4xs:flex 4xs:items-center 4xs:justify-between 4xs:w-full">

@@ -25,7 +25,7 @@ export default function RealNavbar() {
             id="real-navbar"
             className={`${
                 isSticky ? 'fixed top-0 left-0 right-0 z-50 bg-white shadow-md mt-0' : 'mt-2'
-            } md:flex justify-between items-center p-4`}
+            } hidden md:flex justify-between items-center p-4`} // 'hidden md:flex' kullanıldı
         >
             <div className="flex justify-between w-full items-center mx-10 md:flex-col lg:justify-center sm:gap-5 1190:flex-row 1190:justify-around">
                 <div className="flex md:flex-col 1190:flex-row justify-between items-center md:gap-5">
