@@ -20,85 +20,89 @@ import c18 from "./assets/pictures/bestsellers/c18.jpeg";
 import c19 from "./assets/pictures/bestsellers/c19.jpeg";
 import c20 from "./assets/pictures/bestsellers/c20.jpeg";
 
-import team01 from "./assets/team/team1.jfif"
-import team02 from "./assets/team/team2.jfif"
-import team03 from "./assets/team/team3.jfif"
+import team01 from "./assets/team/team1.jfif";
+import team02 from "./assets/team/team2.jfif";
+import team03 from "./assets/team/team3.jfif";
 
-
-// 20 resimden oluşan bir liste
 const images = [
   c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
   c11, c12, c13, c14, c15, c16, c17, c18, c19, c20,
 ];
 
-// Rastgele bir resim seçme fonksiyonu
-const getRandomImage = () => {
-  return images[Math.floor(Math.random() * images.length)];
+// Rastgele bir resim seçme fonksiyonu (sabit kalması için localStorage kullanarak)
+const getRandomImage = (id) => {
+  // Her ürün için benzersiz bir anahtar oluşturuyoruz
+  const key = `product_image_${id}`;
+  const savedImage = localStorage.getItem(key);
+
+  if (savedImage) {
+    return savedImage; // Daha önce atanmış resim varsa onu döndür
+  } else {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    localStorage.setItem(key, randomImage); // Seçilen resmi localStorage'a kaydet
+    return randomImage;
+  }
 };
 
-// 1. Veri seti: bestsellersData (70 ürün)
+// Veri seti
 const totalBestsellers = 70;
 const bestsellersData = [];
 
 for (let i = 1; i <= totalBestsellers; i++) {
   bestsellersData.push({
     id: i,
-    image: getRandomImage(), // Rastgele bir resim seçiliyor
+    image: getRandomImage(i), // Her bir ürün için sabit bir resim atanır
     title: "Graphic Design",
-    description: "Product description goes here",
+    description: "Product description goes here.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
   });
 }
 
-// 2. Veri seti: shopBestsellersData (70 ürün, aynı resim setinden)
 const totalShopBestsellers = 70;
 const shopBestsellersData = [];
 
 for (let i = 1; i <= totalShopBestsellers; i++) {
   shopBestsellersData.push({
     id: i,
-    image: getRandomImage(), // Aynı resim setinden rastgele bir resim seçiliyor
+    image: getRandomImage(i + totalBestsellers), // Diğer veri seti için farklı bir anahtar oluşturur
     title: "Graphic Design",
-    description: "Product description goes here",
+    description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
   });
 }
 
-
 const teamData = [
   {
-      id: 1,
-      image: team01,
-      name: 'John Doe',
-      status: 'Frontend Developer',
-      instagram: 'https://instagram.com/johndoe',
-      github: 'https://github.com/johndoe',
-      linkedin: 'https://linkedin.com/in/johndoe',
+    id: 1,
+    image: team01,
+    name: 'John Doe',
+    status: 'Frontend Developer',
+    instagram: 'https://instagram.com/johndoe',
+    github: 'https://github.com/johndoe',
+    linkedin: 'https://linkedin.com/in/johndoe',
   },
   {
-      id: 2,
-      image: team02,
-      name: 'Jane Smith',
-      status: 'Backend Developer',
-      instagram: 'https://instagram.com/janesmith',
-      github: 'https://github.com/janesmith',
-      linkedin: 'https://linkedin.com/in/janesmith',
+    id: 2,
+    image: team02,
+    name: 'Jane Smith',
+    status: 'Backend Developer',
+    instagram: 'https://instagram.com/janesmith',
+    github: 'https://github.com/janesmith',
+    linkedin: 'https://linkedin.com/in/janesmith',
   },
   {
-      id: 3,
-      image: team03,
-      name: 'Alex Johnson',
-      status: 'UI/UX Designer',
-      instagram: 'https://instagram.com/alexjohnson',
-      github: 'https://github.com/alexjohnson',
-      linkedin: 'https://linkedin.com/in/alexjohnson',
+    id: 3,
+    image: team03,
+    name: 'Alex Johnson',
+    status: 'UI/UX Designer',
+    instagram: 'https://instagram.com/alexjohnson',
+    github: 'https://github.com/alexjohnson',
+    linkedin: 'https://linkedin.com/in/alexjohnson',
   },
 ];
 
-
-// data.js
 const pricingData = [
   {
     title: 'FREE',
@@ -135,6 +139,4 @@ const pricingData = [
   },
 ];
 
-
-// Her iki veri setini export ediyoruz
 export { bestsellersData, shopBestsellersData, teamData, pricingData };
