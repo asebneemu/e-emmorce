@@ -9,10 +9,10 @@ const IconGrid = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-10 md:flex-row md:gap-24 items-center justify-center p-4">
+    <div className="flex flex-col gap-10 md:flex-row md:gap-20 lg:gap-36 xl:px-20 xl:mx-10 items-center justify-center p-4">
       {icons.map((icon, index) => (
         <div key={index} className="m-2">
-          <img src={icon} alt={`icon-${index}`} className="w-[140px] h-[140px] filter grayscale-50" />
+          <img src={icon} alt={`icon-${index}`} className="lg:w-[140px] h-[140px] md:w-[80px] h-[80px] filter grayscale-50" />
         </div>
       ))}
     </div>

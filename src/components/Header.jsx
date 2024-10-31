@@ -1,28 +1,10 @@
+ 
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import resimBir from "../assets/pictures/logo.png"
 
-// Özelleştirilmiş sol ve sağ oklar
-function NextArrow(props) {
-    const { onClick } = props;
-    return (
-        <div className="absolute right-0 top-[50%] translate-y-[-50%] z-50" onClick={onClick}>
-            <FaArrowRight className="text-3xl text-blue-500 hover:text-blue-700 cursor-pointer" />
-        </div>
-    );
-}
-
-function PrevArrow(props) {
-    const { onClick } = props;
-    return (
-        <div className="absolute left-0 top-[50%] translate-y-[-50%] z-50" onClick={onClick}>
-            <FaArrowLeft className="text-3xl text-blue-500 hover:text-blue-700 cursor-pointer" />
-        </div>
-    );
-}
 
 export default function Header() {
     // Slider ayarları
@@ -34,9 +16,7 @@ export default function Header() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        arrows: true,  // Oklar aktif
-        nextArrow: <NextArrow />,  // Özelleştirilmiş sağ ok
-        prevArrow: <PrevArrow />   // Özelleştirilmiş sol ok
+        arrows: false,  // Oklar aktif
     };
 
     const sliderContent = [
