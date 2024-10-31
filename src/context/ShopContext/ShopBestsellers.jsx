@@ -56,6 +56,7 @@ export default function ShopBestsellers() {
                             description={product.description}
                             oldPrice={product.oldPrice}
                             newPrice={product.newPrice}
+                            rating={product.rating}
                         />
                     ))}
                 </div>
