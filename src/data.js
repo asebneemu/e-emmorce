@@ -1,4 +1,3 @@
-// data.js
 import c1 from "./assets/pictures/bestsellers/c1.jpeg";
 import c2 from "./assets/pictures/bestsellers/c2.jpeg";
 import c3 from "./assets/pictures/bestsellers/c3.jpeg";
@@ -31,16 +30,29 @@ const images = [
 
 // Rastgele bir resim seçme fonksiyonu (sabit kalması için localStorage kullanarak)
 const getRandomImage = (id) => {
-  // Her ürün için benzersiz bir anahtar oluşturuyoruz
   const key = `product_image_${id}`;
   const savedImage = localStorage.getItem(key);
 
   if (savedImage) {
-    return savedImage; // Daha önce atanmış resim varsa onu döndür
+    return savedImage;
   } else {
     const randomImage = images[Math.floor(Math.random() * images.length)];
-    localStorage.setItem(key, randomImage); // Seçilen resmi localStorage'a kaydet
+    localStorage.setItem(key, randomImage);
     return randomImage;
+  }
+};
+
+// Rastgele bir rating değeri oluşturma fonksiyonu (0.1 ile 5.0 arasında olacak şekilde)
+const getRandomRating = (id) => {
+  const key = `product_rating_${id}`;
+  const savedRating = localStorage.getItem(key);
+
+  if (savedRating) {
+    return parseFloat(savedRating);
+  } else {
+    const randomRating = (Math.random() * (5 - 0.1) + 0.1).toFixed(1); // 0.1 ile 5.0 arasında
+    localStorage.setItem(key, randomRating);
+    return parseFloat(randomRating);
   }
 };
 
@@ -51,7 +63,7 @@ const bestsellersData = [];
 for (let i = 1; i <= totalBestsellers; i++) {
   bestsellersData.push({
     id: i,
-    image: getRandomImage(i), // Her bir ürün için sabit bir resim atanır
+    image: getRandomImage(i),
     title: "Graphic Design",
     description: "Product description goes here.",
     oldPrice: "$69.99",
@@ -65,11 +77,12 @@ const shopBestsellersData = [];
 for (let i = 1; i <= totalShopBestsellers; i++) {
   shopBestsellersData.push({
     id: i,
-    image: getRandomImage(i + totalBestsellers), // Diğer veri seti için farklı bir anahtar oluşturur
+    image: getRandomImage(i + totalBestsellers),
     title: "Graphic Design",
     description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
+    rating: getRandomRating(i + totalBestsellers), // Rastgele bir rating ekleniyor (0.1 - 5.0 arasında)
   });
 }
 

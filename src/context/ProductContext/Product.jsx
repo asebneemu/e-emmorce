@@ -5,6 +5,9 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import FavoriteButton from '@/components/Buttons/FavoriteButton';
+import AddToCartButton from '@/components/Buttons/AddToCartButton';
+import StarRating from '@/components/Buttons/StarRating';
 
 function NextArrow(props) {
     const { onClick } = props;
@@ -24,10 +27,9 @@ function PrevArrow(props) {
     );
 }
 
-
 export default function Product({ product }) {
     const [currentImage, setCurrentImage] = useState(0);
-    const [isFading, setIsFading] = useState(false); // Opaklık değişimini yönetmek için yeni durum
+    const [isFading, setIsFading] = useState(false);
 
     if (!product) {
         return <p>Ürün bulunamadı.</p>;
@@ -47,16 +49,15 @@ export default function Product({ product }) {
     };
 
     const handleThumbnailClick = (index) => {
-        setIsFading(true); // Opaklık animasyonu başlat
+        setIsFading(true);
         setTimeout(() => {
             setCurrentImage(index);
-            setIsFading(false); // Opaklık animasyonunu sonlandır
-        }, 200); // 200ms süre ile geçiş
+            setIsFading(false);
+        }, 200);
     };
 
     return (
         <div className="w-[90%] mx-auto flex items-start p-8 my-10">
-            {/* Ana Resim Slider */}
             <div className="w-[50%] h-[45%]" style={{ maxWidth: '500px', maxHeight: '450px' }}>
                 <Slider {...settings}>
                     {[product.image, product.image].map((img, index) => (
@@ -73,7 +74,6 @@ export default function Product({ product }) {
                     ))}
                 </Slider>
 
-                {/* Küçük Resimler */}
                 <div className="flex space-x-4 mt-4">
                     {[product.image, product.image].map((img, index) => (
                         <img
@@ -87,12 +87,23 @@ export default function Product({ product }) {
                 </div>
             </div>
 
-            {/* Ürün Bilgileri */}
             <div className="ml-8 text-left self-start w-[40%]">
                 <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
                 <p className="text-lg text-gray-600 mb-4">{product.description}</p>
+                
+                {/* StarRating Bileşeni */}
+                <div className="mb-2">
+                    <StarRating rating={product.rating} />
+                </div>
+
                 <p className="text-xl font-bold text-blue-500 mb-2">{product.newPrice}</p>
                 <p className="text-sm text-gray-500 line-through">{product.oldPrice}</p>
+
+                {/* Favori ve Sepete Ekle Butonları */}
+                <div className="flex items-center gap-x-4 mt-4">
+                    <FavoriteButton product={product} />
+                    <AddToCartButton product={product} />
+                </div>
             </div>
         </div>
     );
