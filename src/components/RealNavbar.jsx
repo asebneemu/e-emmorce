@@ -1,5 +1,3 @@
-// src/components/RealNavbar.js
-
 import { useEffect, useState } from 'react';
 import NavbarButtons from './Buttons/NavbarButtons';
 import AuthButton from './Buttons/AuthButton';
@@ -10,20 +8,16 @@ import { useSelector } from 'react-redux';
 
 export default function RealNavbar() {
     const [isSticky, setIsSticky] = useState(false);
-    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn); // Redux store'dan isLoggedIn değerini al
 
     useEffect(() => {
         const handleScroll = () => {
             const navbarTopPosition = document.getElementById('real-navbar').offsetTop;
-            if (window.scrollY > navbarTopPosition) {
-                setIsSticky(true);
-            } else {
-                setIsSticky(false);
-            }
+            setIsSticky(window.scrollY > navbarTopPosition); // Sticky navbar durumu
         };
 
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll); // Temizleme
     }, []);
 
     return (
@@ -41,7 +35,10 @@ export default function RealNavbar() {
 
                 <div className="flex sm:flex-col 1190:flex-row justify-end sm:gap-5 1190:space-x-8 w-[40%] items-center">
                     <div className="flex items-center space-x-2 gap-2 text-[#23A6F0]">
-                        {isLoggedIn ? <User /> : <AuthButton />}
+                        {isLoggedIn && <User />} {/* Kullanıcı girişi kontrolü, giriş yapıldığında User bileşeni */}
+                    </div>
+                    <div className="flex items-center space-x-2 gap-2 text-[#23A6F0]">
+                        {!isLoggedIn && <AuthButton />} {/* Kullanıcı girişi kontrolü, giriş yapılmadığında AuthButton */}
                     </div>
 
                     <div className="flex lg:space-x-2 1190:gap-16 text-[#23A6F0]">

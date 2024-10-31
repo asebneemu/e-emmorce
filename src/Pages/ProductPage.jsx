@@ -8,6 +8,8 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 import SputnikFooter from "@/components/SputnikFooter";
 import ContactSection from "@/components/ContactSection";
 import FooterLastPart from "@/components/FooterLastPart";
+import ProductDetail from "@/context/ProductContext/ProductDetail";
+import Bestsellers from "@/context/HomeContext/Bestsellers";
 
 export default function ProductPage() {
     const { id } = useParams();
@@ -18,6 +20,8 @@ export default function ProductPage() {
             <NavbarLine />
             <RealNavbar />
             <Product product={product} />
+            <ProductDetail />
+            <Bestsellers />
             <SputnikFooter />
             <ContactSection />
             <FooterLastPart />

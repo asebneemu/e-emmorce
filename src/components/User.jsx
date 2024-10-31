@@ -1,12 +1,12 @@
-// src/components/User.js
-
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const User = () => {
   const currentUser = useSelector((state) => state.auth.currentUser);
 
-  console.log("User Bileşeni - currentUser bilgisi:", currentUser); // Kontrol için
+  if (!currentUser) {
+    return null; // Kullanıcı bilgisi yoksa hiçbir şey render etme
+  }
 
   return (
     <Link to="/user-page" className="flex items-center space-x-2">
