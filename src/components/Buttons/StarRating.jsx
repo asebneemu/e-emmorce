@@ -1,6 +1,7 @@
+// StarRating.jsx
 import { FaStar } from 'react-icons/fa';
 
-export default function StarRating({ rating = 1.0 }) {
+export default function StarRating({ rating = 1.0, starSize = 'text-base', textSize = 'text-sm', width = '1em', height = '1em' }) {
     // Rating değerini doğrula
     const validRating = !isNaN(rating) && rating >= 0.1 && rating <= 5 ? rating : 1.0;
 
@@ -11,7 +12,7 @@ export default function StarRating({ rating = 1.0 }) {
             const fillPercentage = Math.min(1, Math.max(0, validRating - i + 1)) * 100;
 
             stars.push(
-                <div key={i} className="relative inline-block text-gray-300" style={{ width: '1em', height: '1em' }}>
+                <div key={i} className={`relative inline-block text-gray-300 ${starSize}`} style={{ width, height }}>
                     <FaStar className="absolute inset-0 text-gray-300" /> {/* Boş yıldız */}
                     <FaStar
                         className="absolute inset-0 text-yellow-500 overflow-hidden"
@@ -27,9 +28,9 @@ export default function StarRating({ rating = 1.0 }) {
     };
 
     return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-start">
             {renderStars()}
-            <span className="ml-2 font-bold text-yellow-500 text-sm">({validRating.toFixed(1)})</span>
+            <span className={`ml-2 font-bold text-yellow-500 ${textSize}`}>({validRating.toFixed(1)})</span>
         </div>
     );
 }

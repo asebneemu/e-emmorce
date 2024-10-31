@@ -57,7 +57,7 @@ export default function Product({ product }) {
     };
 
     return (
-        <div className="w-[90%] mx-auto flex items-start p-8 my-10">
+        <div className="w-[90%] mx-auto flex items-start p-8 my-20">
             <div className="w-[50%] h-[45%]" style={{ maxWidth: '500px', maxHeight: '450px' }}>
                 <Slider {...settings}>
                     {[product.image, product.image].map((img, index) => (
@@ -65,9 +65,8 @@ export default function Product({ product }) {
                             <img
                                 src={img}
                                 alt={product.title}
-                                className={`w-full h-full object-cover transition-opacity duration-200 ${
-                                    isFading ? 'opacity-0' : 'opacity-100'
-                                }`}
+                                className={`w-full h-full object-cover transition-opacity duration-200 ${isFading ? 'opacity-0' : 'opacity-100'
+                                    }`}
                                 style={{ maxWidth: '500px', maxHeight: '450px' }}
                             />
                         </div>
@@ -87,17 +86,19 @@ export default function Product({ product }) {
                 </div>
             </div>
 
-            <div className="ml-8 text-left self-start w-[40%]">
-                <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
+            <div className="flex flex-col gap-5 ml-8 text-left self-start w-[40%]">
+                <h1 className="text-6xl font-bold mb-2">{product.title}</h1>
                 <p className="text-lg text-gray-600 mb-4">{product.description}</p>
-                
+
                 {/* StarRating Bileşeni */}
                 <div className="mb-2">
-                    <StarRating rating={product.rating} />
+                    <StarRating rating={product.rating} starSize="text-3xl" textSize="text-lg" />
+                </div>
+                <div>
+                    <p className="text-2xl font-bold text-blue-500 mb-2">{product.newPrice}</p>
+                    <p className="text-base text-gray-500 line-through">{product.oldPrice}</p>
                 </div>
 
-                <p className="text-xl font-bold text-blue-500 mb-2">{product.newPrice}</p>
-                <p className="text-sm text-gray-500 line-through">{product.oldPrice}</p>
 
                 {/* Favori ve Sepete Ekle Butonları */}
                 <div className="flex items-center gap-x-4 mt-4">
