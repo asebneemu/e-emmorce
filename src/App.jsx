@@ -11,6 +11,8 @@ import TeamPage from './Pages/TeamPage';
 import PricingPage from "./Pages/PricingPage"
 import ProductPage from './Pages/ProductPage';
 import UserPage from './Pages/UserPage';
+import BestsellerProduct from './context/HomeContext/BestsellerProduct';
+import BestsellerProductPage from './Pages/BestsellerProductPage';
 
 function App() {
   
@@ -29,6 +31,7 @@ function App() {
         <Route path="/team-page" element={<TeamPage />} />
         <Route path="/pricing-page" element={<PricingPage />} />
         <Route path="/product-page/:id" element={<ProductPage />} />
+        <Route path="/bestseller-product-page/:id" element={<BestsellerProductPage />} /> {/* ID'ye göre yönlendirme */}
         <Route path="/user-page" element={<UserPage />} />
       </Routes>
     </Router>
