@@ -11,8 +11,8 @@ export default function BestsellerProduct({ product }) {
 
     return (
         <div className="flex flex-col items-center p-4 gap-10 my-20">
-            <h1 className="text-6xl font-bold mb-4">Bestseller Product #{product.id}</h1>
-            <div className="flex gap-10 items-start justify-center"> {/* items-start ile yukarı hizala */}
+            <h1 className="text-6xl font-bold mb-4 text-center">Bestseller Product #{product.id}</h1>
+            <div className="flex gap-10 3xs:items-center md:items-start justify-center 3xs:flex-col md:flex-row"> {/* items-start ile yukarı hizala */}
                 <div className="w-[40%] flex flex-col items-start gap-5">
                     <h2 className="text-4xl font-semibold">{product.title}</h2>
                     <p className="text-xl text-gray-600 mb-2">{product.description}</p>

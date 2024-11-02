@@ -8,8 +8,8 @@ const FeaturedProducts2 = () => {
         {/* İlk div - İçinde h1, p ve img */}
         <div className="flex flex-col justify-between w-1/2">
           <div>
-            <h1 className="text-6xl font-bold mb-4">Featured Product</h1>
-            <p className="text-lg mb-4">Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics.</p>
+            <h1 className="3xs:text-2xl md:text-6xl font-bold mb-4">Featured Product</h1>
+            <p className="3xs:text-sm md:text-lg mb-4">Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics.</p>
           </div>
           <img
             src={resim1}

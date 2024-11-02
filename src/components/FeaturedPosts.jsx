@@ -23,7 +23,7 @@ const FeaturedPosts = () => {
       <div className="flex flex-col items-center gap-8 w-[70%] md:flex-row md:gap-14">
         
         {/* İlk Post */}
-        <div className="relative flex flex-col md:flex-row gap-6 border border-gray-300 rounded-md w-full">
+        <div className="relative flex flex-col md:flex-row gap-6 border border-gray-300 rounded-md w-full 3xs:pb-5 md:pb-0">
           {/* Resim */}
           <div className="relative w-full md:w-1/3 h-[300px] md:h-[400px] overflow-hidden m-0 p-0">
             <img src={resimBir} alt="Post 1" className="w-[100%] h-full object-cover m-0 p-0" />
@@ -99,7 +99,7 @@ const FeaturedPosts = () => {
         </div>
 
         {/* İkinci Post */}
-        <div className="relative flex flex-col md:flex-row gap-6 border border-gray-300 rounded-md w-full">
+        <div className="relative flex flex-col md:flex-row gap-6 border border-gray-300 rounded-md w-full 3xs:pb-5 md:pb-0">
           {/* Resim */}
           <div className="relative w-full md:w-1/3 h-[300px] md:h-[400px] overflow-hidden m-0 p-0">
             <img src={resimIki} alt="Post 2" className="w-full h-full object-cover m-0 p-0" />
