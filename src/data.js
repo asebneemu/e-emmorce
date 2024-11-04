@@ -65,9 +65,10 @@ for (let i = 1; i <= totalBestsellers; i++) {
     id: i,
     image: getRandomImage(i),
     title: "Graphic Design",
-    description: "Product description goes here.",
+    description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
+    rating: getRandomRating(i + totalBestsellers),
   });
 }
 
@@ -77,12 +78,12 @@ const shopBestsellersData = [];
 for (let i = 1; i <= totalShopBestsellers; i++) {
   shopBestsellersData.push({
     id: i,
-    image: getRandomImage(i + totalBestsellers),
+    image: getRandomImage(i + totalShopBestsellers),
     title: "Graphic Design",
     description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
-    rating: getRandomRating(i + totalBestsellers), // Rastgele bir rating ekleniyor (0.1 - 5.0 arasında)
+    rating: getRandomRating(i + totalShopBestsellers), // Rastgele bir rating ekleniyor (0.1 - 5.0 arasında)
   });
 }
 

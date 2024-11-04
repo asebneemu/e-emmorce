@@ -4,7 +4,7 @@ export default function ContactSection() {
     return (
         <div className="w-[80%] mx-auto py-14">
             {/* İçerik Bölümü */}
-            <div className="flex gap-10 md:flex-row 3xs:flex-col">
+            <div className="flex flex-col md:flex-row gap-10">
                 {/* İlk dört div - Başlıklar ve Paragraflar */}
                 <div className="flex flex-col gap-4 w-full md:w-1/4">
                     <h2 className="text-xl font-semibold">Pages</h2>
@@ -69,6 +69,4 @@ export default function ContactSection() {
             </div>
         </div>
     );
-};
-
-
+}

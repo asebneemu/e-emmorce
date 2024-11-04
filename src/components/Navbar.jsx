@@ -1,17 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiUser, FiSearch } from 'react-icons/fi';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import SepetimButtonu from './Buttons/SepetimButton';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false); // Menü durumu için state
+    const [isSticky, setIsSticky] = useState(false); // Sticky durumu için state
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen); // Menü açma/kapama fonksiyonu
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsSticky(true); // Sayfa kaydırıldığında sticky durumu true olur
+            } else {
+                setIsSticky(false); // Sayfa en üste geldiğinde sticky durumu false olur
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll); // Temizleme
+    }, []);
+
     return (
-        <div className="4xs:min-h-auto 4xs:flex 4xs:flex-col 4xs:items-center p-4 2xs:w-[540px] 2xs:mx-auto md:hidden 2xs:w-full mb-10">
+        <div className={`4xs:min-h-auto 4xs:flex 4xs:flex-col 4xs:items-center p-4 2xs:w-[540px] 2xs:mx-auto md:hidden 2xs:w-full mb-10 ${isSticky ? 'fixed top-0 left-0 right-0 z-50' : 'relative'}`}>
             {/* 2xs için genişlik ve yatayda ortalama (mx-auto) */}
 
             <div className="bg-white p-4 rounded-lg shadow-md 4xs:flex 4xs:items-center 4xs:justify-between 4xs:w-full">
@@ -39,7 +53,7 @@ export default function Navbar() {
 
             {/* Menü tıklandığında açılacak butonlar */}
             {menuOpen && (
-                <div className="mt-4 flex flex-col space-y-2 mt-10 gap-4">
+                <div className="mt-4 flex flex-col space-y-2 gap-4 bg-white p-4 rounded-lg shadow-md w-full items-center"> {/* Arka plan rengi ve yuvarlak köşe eklendi, w-full eklendi */}
                     <Link to="/home-page">
                         <button className="text-gray-400 text-2xl font-bold p-2 rounded">Home</button>
                     </Link>

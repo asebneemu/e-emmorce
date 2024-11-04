@@ -57,8 +57,8 @@ export default function Product({ product }) {
     };
 
     return (
-        <div className="w-[90%] mx-auto flex items-start p-8 my-20">
-            <div className="w-[50%] h-[45%]" style={{ maxWidth: '500px', maxHeight: '450px' }}>
+        <div className="w-[90%] mx-auto flex 3xs:flex-col 3xs:items-center md:flex-row md:items-start 3xs:gap-10 p-8 my-20">
+            <div className="3xs:w-full md:w-[50%] h-[45%]" style={{ maxWidth: '500px', maxHeight: '450px' }}>
                 <Slider {...settings}>
                     {[product.image, product.image].map((img, index) => (
                         <div key={index}>
@@ -86,22 +86,20 @@ export default function Product({ product }) {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-5 ml-8 text-left self-start w-[40%]">
+            <div className="flex flex-col gap-5 ml-8 text-left 3xs:items-center md:self-start 3xs:w-[80%] md:w-[40%]">
                 <h1 className="text-6xl font-bold mb-2">{product.title}</h1>
                 <p className="text-lg text-gray-600 mb-4">{product.description}</p>
 
                 {/* StarRating Bileşeni */}
-                <div className="mb-2">
+                <div className="mb-2 self-start">
                     <StarRating rating={product.rating} starSize="text-3xl" textSize="text-lg" />
                 </div>
-                <div>
-                    <p className="text-2xl font-bold text-blue-500 mb-2">{product.newPrice}</p>
+                <div className="self-start flex flex-row gap-5">
                     <p className="text-base text-gray-500 line-through">{product.oldPrice}</p>
+                    <p className="text-2xl font-bold text-blue-500 mb-2">{product.newPrice}</p>
                 </div>
-
-
                 {/* Favori ve Sepete Ekle Butonları */}
-                <div className="flex items-center gap-x-4 mt-4">
+                <div className="flex 3xs:self-start md:items-center gap-x-4 mt-4">
                     <FavoriteButton product={product} />
                     <AddToCartButton product={product} />
                 </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+
 import Bestsellers from "../context/HomeContext/Bestsellers";
 import Cards from "../context/HomeContext/Cards";
 import ContactSection from "../components/ContactSection";
@@ -12,7 +12,6 @@ import NavbarLine from "../components/NavbarLine";
 import RealNavbar from "../components/RealNavbar";
 import SputnikFooter from "../components/SputnikFooter";
 import WhatWeDo from "../context/HomeContext/WhatWeDo";
-import User from "../components/User"; // User bileşenini içe aktarın
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function HomePage() {
