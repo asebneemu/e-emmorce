@@ -11,7 +11,6 @@ import TeamPage from './Pages/TeamPage';
 import PricingPage from "./Pages/PricingPage"
 import ProductPage from './Pages/ProductPage';
 import UserPage from './Pages/UserPage';
-import BestsellerProduct from './context/HomeContext/BestsellerProduct';
 import BestsellerProductPage from './Pages/BestsellerProductPage';
 
 function App() {

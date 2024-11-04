@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faShoppingCart, faEye, faStar, faDownload } from '@fortawesome/free-solid-svg-icons';
@@ -34,6 +35,12 @@ const FeaturedPost = ({ image, title, description, oldPrice, newPrice, rating, s
 
                 <h2 className="3xs:text-sm md:text-2xl font-semibold pl-4 text-left">{title}</h2>
                 <p className="3xs:text-sm md:text-base pl-4 text-left">{description}</p>
+
+                {/* Eski ve yeni fiyat bilgileri sadece md ve üstünde görünür */}
+                <div className="hidden md:flex items-center gap-x-2 pl-4">
+                    <p className="text-lg text-gray-500 line-through">{oldPrice}</p>
+                    <p className="text-xl font-bold text-blue-500">{newPrice}</p>
+                </div>
 
                 <div className="hidden md:flex items-center gap-2 pl-4 mt-1">
                     <FontAwesomeIcon icon={faDownload} className="text-blue-500" /> {/* İndirme ikonu */}
