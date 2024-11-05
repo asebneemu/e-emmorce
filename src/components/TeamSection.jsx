@@ -15,7 +15,7 @@ export default function TeamSection() {
       </div>
 
       {/* Takım Üyeleri */}
-      <div className="flex 3xs:flex-col 3xs:items-center md:flex-row justify-center gap-8">
+      <div className="flex 3xs:flex-col 3xs:items-center lg:flex-row justify-center gap-8">
         {teamData.map((member) => (
           <TeamCart
             key={member.id}

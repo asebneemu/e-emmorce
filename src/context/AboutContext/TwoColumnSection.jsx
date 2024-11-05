@@ -2,7 +2,7 @@ import resim from "../../assets/pictures/ucbir.png";
 
 export default function TwoColumnSection() {
     return (
-        <div className="w-full flex my-20">
+        <div className="w-full flex 3xs:flex-col md:flex-row my-20">
             {/* Soldaki yüzde 60'lık alan */}
             <div className="3xs:w-full md:w-[60%] flex md:justify-start items-center p-8 bg-blue-400 3xs:mx-auto">
                 {/* Ortalanan yüzde 40'lık iç div */}
@@ -19,7 +19,7 @@ export default function TwoColumnSection() {
             </div>
 
             {/* Sağdaki yüzde 40'lık resim alanı */}
-            <div className="w-[40%] 3xs:hidden md:block">
+            <div className="w-[40%] 3xs:hidden md:flex">
                 {/* Resim arka plan olarak ayarlanıyor */}
                 <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${resim})` }}>
                     {/* Resim cover modunda burada yer alıyor */}
