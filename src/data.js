@@ -22,6 +22,8 @@ import c20 from "./assets/pictures/bestsellers/c20.jpeg";
 import team01 from "./assets/team/team1.jfif";
 import team02 from "./assets/team/team2.jfif";
 import team03 from "./assets/team/team3.jfif";
+import team04 from "./assets/team/team4.jfif";
+import team05 from "./assets/team/team5.jfif";
 
 const images = [
   c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
@@ -114,6 +116,24 @@ const teamData = [
     instagram: 'https://instagram.com/alexjohnson',
     github: 'https://github.com/alexjohnson',
     linkedin: 'https://linkedin.com/in/alexjohnson',
+  },
+  {
+    id: 4,
+    image: team04,
+    name: 'David Jonah',
+    status: 'Frontend Developer',
+    instagram: 'https://instagram.com/davidjonah',
+    github: 'https://github.com/davidjonah',
+    linkedin: 'https://linkedin.com/in/davidjonah',
+  },
+  {
+    id: 5,
+    image: team05,
+    name: 'David Jonah',
+    status: 'Frontend Developer',
+    instagram: 'https://instagram.com/davidjonah',
+    github: 'https://github.com/davidjonah',
+    linkedin: 'https://linkedin.com/in/davidjonah',
   },
 ];
 

@@ -15,17 +15,18 @@ export default function TeamSection() {
       </div>
 
       {/* Takım Üyeleri */}
-      <div className="flex 3xs:flex-col 3xs:items-center lg:flex-row justify-center gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full md:w-[80%] lg:w-[90%]">
         {teamData.map((member) => (
-          <TeamCart
-            key={member.id}
-            image={member.image}
-            name={member.name}
-            status={member.status}
-            instagram={member.instagram}
-            github={member.github}
-            linkedin={member.linkedin}
-          />
+          <div className="3xs:w-[80%] sm:w-[90%] mx-auto" key={member.id}>
+            <TeamCart
+              image={member.image}
+              name={member.name}
+              status={member.status}
+              instagram={member.instagram}
+              github={member.github}
+              linkedin={member.linkedin}
+            />
+          </div>
         ))}
       </div>
     </div>
