@@ -10,7 +10,7 @@ const ContactPart = () => {
       <div className="flex flex-col items-center justify-center space-y-20">
         {/* h1 olan div */}
         <div className="text-center">
-          <h1 className="text-6xl font-bold text-black">Get answers to all your questions.</h1>
+          <h1 className="3xs:text-3xl md:text-6xl font-bold text-black">Get answers to all your questions.</h1>
         </div>
 
         {/* p olan div */}
