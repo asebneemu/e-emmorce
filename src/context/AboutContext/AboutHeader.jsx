@@ -1,4 +1,3 @@
-
 import resim from "../../assets/pictures/about-logo.png"
 
 export default function AboutHeader() {
@@ -20,7 +19,6 @@ export default function AboutHeader() {
                         <button className="text-xl font-bold w-[220px] h-[60px] mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                             GET QUOTE NOW
                         </button>
-
                     </div>
 
                     {/* Yeni eklenen div */}
@@ -30,7 +28,7 @@ export default function AboutHeader() {
                         </div>
 
                         {/* Resim */}
-                        <div className="absolute bottom-0 right-0 w-full h-auto z-30 left-0 transform scale-135 -translate-x-5 md:translate-x-10 sm:mx-auto">
+                        <div className="absolute bottom-0 right-0 w-full h-auto z-30 left-0 transform scale-135 translate-x-32 sm:mx-auto">
                             <img src={resim} alt="Your Image" className="w-[55%] h-auto object-cover" />
                         </div>
                     </div>
