@@ -1,4 +1,3 @@
-import React from "react";
 import TeamCart from "./TeamCart"; // TeamCart bileşeni
 import { teamData } from "../data";
 
@@ -6,9 +5,9 @@ export default function TeamSection() {
   return (
     <div className="w-full flex flex-col items-center p-8 my-20">
       {/* Başlık ve Açıklama */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold uppercase">Meet Our Team</h1>
-        <p className="text-lg mt-4">
+      <div className="flex flex-col text-center mb-8 3xs:items-center">
+        <h1 className="3xs:text-2xl md:text-4xl font-bold uppercase">Meet Our Team</h1>
+        <p className="3xs:text-base 3xs:w-[70%] md:text-lg md:w-full mt-4">
           Problems trying to resolve the conflict between <br />
           the two major realms of Classical physics: Newtonian mechanics
         </p>
