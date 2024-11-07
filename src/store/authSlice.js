@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    isLoggedIn: localStorage.getItem("isLoggedIn") === "true" || false, 
+    isLoggedIn: localStorage.getItem("isLoggedIn") === "true" || false,
     currentUser: JSON.parse(localStorage.getItem("currentUser")) || {
         firstName: "",
         lastName: "",
@@ -12,13 +12,13 @@ const initialState = {
     },
 };
 
-// Sunucuya giriş isteği atan thunk oluşturuyoruz
+// Sunucuya giriş isteği atan thunk
 export const loginUser = createAsyncThunk(
     "auth/loginUser",
     async (userData, { rejectWithValue }) => {
         try {
             const response = await axios.post("https://workintech-fe-ecommerce.onrender.com/login", userData);
-            return response.data; // Kullanıcı bilgilerini döndürür
+            return response.data;
         } catch (error) {
             return rejectWithValue("Email veya şifre yanlış.");
         }
@@ -29,6 +29,12 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
+        login: (state, action) => {
+            state.isLoggedIn = true;
+            state.currentUser = action.payload;
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", JSON.stringify(action.payload));
+        },
         logout: (state) => {
             state.isLoggedIn = false;
             state.currentUser = { firstName: "", lastName: "", email: "" };
@@ -48,10 +54,10 @@ const authSlice = createSlice({
             localStorage.setItem("currentUser", JSON.stringify(action.payload));
         });
         builder.addCase(loginUser.rejected, (state, action) => {
-            alert(action.payload); // Hata mesajını göster
+            alert(action.payload);
         });
     }
 });
 
-export const { logout, updateUser } = authSlice.actions;
+export const { login, logout, updateUser } = authSlice.actions;
 export default authSlice.reducer;
