@@ -5,7 +5,6 @@ import SepetimPage from './Pages/SepetimPage';
 import AboutPage from './Pages/AboutPage';
 import Favoriler from './context/SepetimContext/Favoriler';
 import ContactPage from './Pages/ContactPage';
-import LoginPage from './Pages/LoginPage';
 import MemberPage from './Pages/MemberPage';
 import TeamPage from './Pages/TeamPage';
 import PricingPage from "./Pages/PricingPage"
