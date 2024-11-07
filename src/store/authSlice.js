@@ -1,9 +1,9 @@
 // src/store/authSlice.js
 
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-    // İlk başta isLoggedIn değeri localStorage'dan alınıyor, eğer yoksa false oluyor
     isLoggedIn: localStorage.getItem("isLoggedIn") === "true" || false, 
     currentUser: JSON.parse(localStorage.getItem("currentUser")) || {
         firstName: "",
@@ -12,30 +12,46 @@ const initialState = {
     },
 };
 
+// Sunucuya giriş isteği atan thunk oluşturuyoruz
+export const loginUser = createAsyncThunk(
+    "auth/loginUser",
+    async (userData, { rejectWithValue }) => {
+        try {
+            const response = await axios.post("https://workintech-fe-ecommerce.onrender.com/login", userData);
+            return response.data; // Kullanıcı bilgilerini döndürür
+        } catch (error) {
+            return rejectWithValue("Email veya şifre yanlış.");
+        }
+    }
+);
+
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        login: (state, action) => {
-            state.isLoggedIn = true;
-            state.currentUser = action.payload;
-            localStorage.setItem("isLoggedIn", "true"); // Kullanıcı giriş yaptığında localStorage'ı güncelle
-            localStorage.setItem("currentUser", JSON.stringify(action.payload));
-            console.log("Giriş yapıldı, isLoggedIn durumu:", state.isLoggedIn);
-        },
         logout: (state) => {
             state.isLoggedIn = false;
-            state.currentUser = { firstName: "", lastName: "", email: "" }; // Kullanıcı bilgilerini sıfırla
-            localStorage.setItem("isLoggedIn", "false"); // Kullanıcı çıkış yaptığında localStorage'ı güncelle
+            state.currentUser = { firstName: "", lastName: "", email: "" };
+            localStorage.setItem("isLoggedIn", "false");
             localStorage.removeItem("currentUser");
-            console.log("Çıkış yapıldı, isLoggedIn durumu:", state.isLoggedIn);
         },
         updateUser: (state, action) => {
             state.currentUser = { ...state.currentUser, ...action.payload };
-            localStorage.setItem("currentUser", JSON.stringify(state.currentUser)); // Kullanıcı bilgilerini güncelle
+            localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
         },
     },
+    extraReducers: (builder) => {
+        builder.addCase(loginUser.fulfilled, (state, action) => {
+            state.isLoggedIn = true;
+            state.currentUser = action.payload;
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", JSON.stringify(action.payload));
+        });
+        builder.addCase(loginUser.rejected, (state, action) => {
+            alert(action.payload); // Hata mesajını göster
+        });
+    }
 });
 
-export const { login, logout, updateUser } = authSlice.actions; // Giriş, çıkış ve güncelleme eylemlerini dışa aktar
-export default authSlice.reducer; // Slice reducer'ını dışa aktar
+export const { logout, updateUser } = authSlice.actions;
+export default authSlice.reducer;
