@@ -24,29 +24,45 @@ const SignUpPage = () => {
                 const response = await axios.get("https://workintech-fe-ecommerce.onrender.com/roles");
                 setRoles(response.data);
             } catch (error) {
+                console.error("Roles fetch error:", error);
                 toast.error("Failed to load roles");
             }
         };
         fetchRoles();
     }, []);
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (formData) => {
         setLoading(true);
+
+        // API'nin beklediği veri yapısını oluşturuyoruz
+        const data = {
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            role_id: formData.role_id,
+            store: selectedRole === "Store" ? {
+                name: formData.store?.name,
+                phone: formData.store?.phone,
+                tax_no: formData.store?.tax_no,
+                bank_account: formData.store?.bank_account
+            } : undefined,
+        };
+
         try {
-            // Sahte API yerine gerçek API'ye istek gönderiyoruz
-            await axios.post("https://workintech-fe-ecommerce.onrender.com/signup", data);
-            
+            const response = await axios.post("https://workintech-fe-ecommerce.onrender.com/signup", data);
+            console.log("Registration successful:", response);
+
             // Kullanıcı bilgilerini Redux ve localStorage'a kaydet
-            dispatch(login(data)); // Sadece sahte veri olarak user bilgisi
+            dispatch(login(data));
             toast.success("Registration successful! You need to activate your account.");
-            navigate("/home-page"); // Başarılı kayıt sonrası yönlendirme
+            navigate("/home-page");
         } catch (error) {
+            console.error("Sign-up error:", error.response || error.message);
             toast.error("Sign-up failed. Please try again.");
-            console.log(error.response?.data);
         } finally {
             setLoading(false);
         }
-    };    
+    };
 
     // Watch password fields for validation
     const password = watch("password");

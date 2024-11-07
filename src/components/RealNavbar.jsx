@@ -3,7 +3,7 @@ import NavbarButtons from './Buttons/NavbarButtons';
 import AuthButton from './Buttons/AuthButton';
 import FavorilerButtonu from './Buttons/FavorilerButtonu';
 import SepetimButtonu from './Buttons/SepetimButton';
-import User from '../components/User';
+import User from './User';
 import { useSelector } from 'react-redux';
 
 export default function RealNavbar() {
