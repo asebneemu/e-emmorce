@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const User = () => {
   const currentUser = useSelector((state) => state.auth.currentUser);
 
-  if (!currentUser) {
+  if (!currentUser || !currentUser.name) {
     return null; // Kullanıcı bilgisi yoksa hiçbir şey render etme
   }
 
@@ -14,10 +14,10 @@ const User = () => {
         className="rounded-full bg-black text-white text-sm font-bold flex items-center justify-center"
         style={{ width: "30px", height: "30px" }}
       >
-        {currentUser.firstName?.charAt(0)}{currentUser.lastName?.charAt(0)}
+        {currentUser.name.charAt(0)}
       </div>
       <p className="text-lg font-semibold text-black">
-        {currentUser.firstName} {currentUser.lastName}
+        {currentUser.name}
       </p>
     </Link>
   );

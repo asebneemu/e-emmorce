@@ -18,6 +18,7 @@ export const loginUser = createAsyncThunk(
     async (userData, { rejectWithValue }) => {
         try {
             const response = await axios.post("https://workintech-fe-ecommerce.onrender.com/login", userData);
+            console.log("Sunucu Yanıtı:", response.data); // Sunucudan gelen yanıtı kontrol edin
             return response.data;
         } catch (error) {
             return rejectWithValue("Email veya şifre yanlış.");
@@ -32,17 +33,20 @@ const authSlice = createSlice({
         login: (state, action) => {
             state.isLoggedIn = true;
             state.currentUser = action.payload;
+            // Kullanıcı bilgilerini localStorage'a kaydediyoruz
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentUser", JSON.stringify(action.payload));
         },
         logout: (state) => {
             state.isLoggedIn = false;
             state.currentUser = { firstName: "", lastName: "", email: "" };
+            // localStorage'daki kullanıcı bilgilerini temizliyoruz
             localStorage.setItem("isLoggedIn", "false");
             localStorage.removeItem("currentUser");
         },
         updateUser: (state, action) => {
             state.currentUser = { ...state.currentUser, ...action.payload };
+            // Güncellenmiş kullanıcı bilgilerini localStorage'a kaydediyoruz
             localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
         },
     },
@@ -50,6 +54,7 @@ const authSlice = createSlice({
         builder.addCase(loginUser.fulfilled, (state, action) => {
             state.isLoggedIn = true;
             state.currentUser = action.payload;
+            // Giriş başarılı olduğunda kullanıcı bilgilerini localStorage'a kaydediyoruz
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentUser", JSON.stringify(action.payload));
         });

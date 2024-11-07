@@ -10,7 +10,7 @@ import { clearFavorites } from "../../store/favoritesSlice";
 import { FaPen } from "react-icons/fa"; // Kalem ikonu
 
 const Profile = () => {
-  const { firstName, lastName, email, phone } = useSelector((state) => state.auth.currentUser || {});
+  const { name, email, phone } = useSelector((state) => state.auth.currentUser || {});
   const cartItems = useSelector((state) => state.cart.cartItems);
   const favoriteItems = useSelector((state) => state.favorites.favoriteItems);
   const dispatch = useDispatch();
@@ -18,11 +18,8 @@ const Profile = () => {
 
   const [profileImage, setProfileImage] = useState(null); // Profil resmini saklar
   
-  const [isEditingFirstName, setIsEditingFirstName] = useState(false);
-  const [newFirstName, setNewFirstName] = useState(firstName || "");
-
-  const [isEditingLastName, setIsEditingLastName] = useState(false);
-  const [newLastName, setNewLastName] = useState(lastName || "");
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [newName, setNewName] = useState(name || "");
 
   const [isEditingEmail, setIsEditingEmail] = useState(false);
   const [newEmail, setNewEmail] = useState(email || "");
@@ -48,16 +45,14 @@ const Profile = () => {
       setProfileImage(savedImage); // Sadece `localStorage`'daki resim yüklendiğinde ayarlanır
     }
     if (savedUser) {
-      setNewFirstName(savedUser.firstName || firstName);
-      setNewLastName(savedUser.lastName || lastName);
+      setNewName(savedUser.name || name);
       setNewEmail(savedUser.email || email);
     }
-  }, [email, firstName, lastName]);
+  }, [email, name]);
 
   const handleSave = () => {
     const updatedUser = {
-      firstName: newFirstName,
-      lastName: newLastName,
+      name: newName,
       email: newEmail,
       phone,
     };
@@ -96,40 +91,20 @@ const Profile = () => {
           <div className="text-lg text-gray-700 space-y-3">
             <div className="flex items-center justify-between">
               <span>Ad: </span>
-              {isEditingFirstName ? (
+              {isEditingName ? (
                 <div className="flex-grow">
                   <input
                     type="text"
-                    value={newFirstName}
-                    onChange={(e) => setNewFirstName(e.target.value)}
+                    value={newName}
+                    onChange={(e) => setNewName(e.target.value)}
                     className="ml-2 p-1 border border-gray-300 rounded w-full"
                   />
-                  <button onClick={() => { setIsEditingFirstName(false); handleSave(); }} className="ml-2 text-blue-500">Kaydet</button>
+                  <button onClick={() => { setIsEditingName(false); handleSave(); }} className="ml-2 text-blue-500">Kaydet</button>
                 </div>
               ) : (
                 <div className="flex-grow flex justify-between">
-                  <span className="mr-5">{newFirstName}</span>
-                  <FaPen onClick={() => setIsEditingFirstName(true)} className="cursor-pointer text-gray-500" />
-                </div>
-              )}
-            </div>
-
-            <div className="flex items-center justify-between">
-              <span>Soyad: </span>
-              {isEditingLastName ? (
-                <div className="flex-grow">
-                  <input
-                    type="text"
-                    value={newLastName}
-                    onChange={(e) => setNewLastName(e.target.value)}
-                    className="ml-2 p-1 border border-gray-300 rounded w-full"
-                  />
-                  <button onClick={() => { setIsEditingLastName(false); handleSave(); }} className="ml-2 text-blue-500">Kaydet</button>
-                </div>
-              ) : (
-                <div className="flex-grow flex justify-between">
-                  <span className="mr-5">{newLastName}</span>
-                  <FaPen onClick={() => setIsEditingLastName(true)} className="cursor-pointer text-gray-500" />
+                  <span className="mr-5">{newName}</span>
+                  <FaPen onClick={() => setIsEditingName(true)} className="cursor-pointer text-gray-500" />
                 </div>
               )}
             </div>
