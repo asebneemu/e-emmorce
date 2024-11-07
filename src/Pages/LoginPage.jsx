@@ -1,5 +1,5 @@
 // src/pages/LoginPage.js
-
+/*
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -109,9 +109,9 @@ const LoginPage = () => {
                     Kayıt Ol
                 </button>
             </form>
-            <ToastContainer /> {/* Toast mesajlarını göstermek için */}
+            <ToastContainer /> {/* Toast mesajlarını göstermek için *//*}
         </div>
     );
 };
 
-export default LoginPage;
+export default LoginPage;*/

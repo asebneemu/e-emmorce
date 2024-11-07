@@ -5,13 +5,13 @@ import SepetimPage from './Pages/SepetimPage';
 import AboutPage from './Pages/AboutPage';
 import Favoriler from './context/SepetimContext/Favoriler';
 import ContactPage from './Pages/ContactPage';
-import LoginPage from './Pages/LoginPage';
 import MemberPage from './Pages/MemberPage';
 import TeamPage from './Pages/TeamPage';
 import PricingPage from "./Pages/PricingPage"
 import ProductPage from './Pages/ProductPage';
 import UserPage from './Pages/UserPage';
 import BestsellerProductPage from './Pages/BestsellerProductPage';
+import SignUpPage from './Pages/SignUpPage';
 
 function App() {
   
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login-page" element={<LoginPage />} />
+        <Route path="/login-page" element={<SignUpPage />} />
         <Route path="/member-page" element={<MemberPage />} />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/shop-page" element={<ShopPage />} />
