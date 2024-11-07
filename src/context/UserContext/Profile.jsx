@@ -1,5 +1,3 @@
-// src/components/Profile.js
-
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +5,8 @@ import { logoutUser } from "../../store/userSlice";
 import { logout, updateUser } from "../../store/authSlice";
 import { clearCart } from "../../store/cartSlice";
 import { clearFavorites } from "../../store/favoritesSlice";
-import { FaPen } from "react-icons/fa"; // Kalem ikonu
+import { FaPen } from "react-icons/fa";
+import md5 from "md5"; // Gravatar desteği için
 
 const Profile = () => {
   const { name, email, phone } = useSelector((state) => state.auth.currentUser || {});
@@ -16,39 +15,41 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [profileImage, setProfileImage] = useState(null); // Profil resmini saklar
+  const [profileImage, setProfileImage] = useState(null);
   
   const [isEditingName, setIsEditingName] = useState(false);
   const [newName, setNewName] = useState(name || "");
-
   const [isEditingEmail, setIsEditingEmail] = useState(false);
   const [newEmail, setNewEmail] = useState(email || "");
 
-  // Resim Yükleme Fonksiyonu - Yalnızca yeni bir resim yüklendiğinde güncellenir
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setProfileImage(reader.result);
-        localStorage.setItem(`profileImage`, reader.result); // 4.1 Profil resmi genel bir anahtarla saklanır
+        localStorage.setItem(`profileImage`, reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // İlk yüklendiğinde `localStorage`daki resmi kontrol etme
   useEffect(() => {
     const savedImage = localStorage.getItem(`profileImage`);
     const savedUser = JSON.parse(localStorage.getItem(`user_${email}`));
+    const gravatarUrl = `https://www.gravatar.com/avatar/${md5(newEmail.trim().toLowerCase())}`;
+
     if (savedImage) {
-      setProfileImage(savedImage); // Sadece `localStorage`'daki resim yüklendiğinde ayarlanır
+        setProfileImage(savedImage);
+    } else {
+        setProfileImage(gravatarUrl); // Eğer yüklenmiş profil resmi yoksa Gravatar kullanılır
     }
+
     if (savedUser) {
       setNewName(savedUser.name || name);
       setNewEmail(savedUser.email || email);
     }
-  }, [email, name]);
+  }, [email, name, newEmail]);
 
   const handleSave = () => {
     const updatedUser = {
@@ -57,14 +58,13 @@ const Profile = () => {
       phone,
     };
 
-    dispatch(updateUser(updatedUser)); // Redux ve localStorage güncellemeleri için updateUser dispatch edildi
-    localStorage.setItem(`user_${newEmail}`, JSON.stringify(updatedUser)); // Yeni email ile user verisi kaydedildi
-    localStorage.setItem("currentUser", JSON.stringify(updatedUser)); // Yeni email ile currentUser bilgisi kaydedildi
+    dispatch(updateUser(updatedUser));
+    localStorage.setItem(`user_${newEmail}`, JSON.stringify(updatedUser));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
   };
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center mt-8 p-4 space-y-4 md:space-y-0 md:space-x-12 max-w-4xl mx-auto">
-      {/* Profil Resmi Yükleme Butonu */}
       <div className="flex flex-col items-center">
         <label htmlFor="profileImageInput" className="cursor-pointer">
           <div className="w-96 h-96 bg-gray-200 rounded-full flex items-center justify-center">
@@ -84,7 +84,6 @@ const Profile = () => {
         />
       </div>
 
-      {/* Kullanıcı Bilgileri */}
       <div className="flex-1 flex justify-center max-w-xs">
         <div className="text-center md:text-left">
           <p className="text-2xl font-bold mb-4">Kullanıcı Bilgileri</p>
@@ -130,7 +129,6 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Çıkış Yap Butonu */}
           <button 
             onClick={() => {
               if (newEmail) {

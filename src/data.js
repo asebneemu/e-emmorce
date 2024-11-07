@@ -58,7 +58,7 @@ const getRandomRating = (id) => {
   }
 };
 
-// Veri seti
+// Ana veri setleri
 const totalBestsellers = 70;
 const bestsellersData = [];
 
@@ -88,6 +88,47 @@ for (let i = 1; i <= totalShopBestsellers; i++) {
     rating: getRandomRating(i + totalShopBestsellers), // Rastgele bir rating ekleniyor (0.1 - 5.0 arasında)
   });
 }
+
+// Yeni veri setleri (elbise, çanta, tişört ve pantolon için)
+const shopBestsellersElbiseData = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 501,
+  image: getRandomImage(i + 501),
+  title: "Elbise",
+  description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.",
+  oldPrice: "$69.99",
+  newPrice: "$49.99",
+  rating: getRandomRating(i + 501),
+}));
+
+const shopBestsellersCantaData = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 601,
+  image: getRandomImage(i + 601),
+  title: "Çanta",
+  description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.",
+  oldPrice: "$79.99",
+  newPrice: "$59.99",
+  rating: getRandomRating(i + 601),
+}));
+
+const shopBestsellersTisortData = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 701,
+  image: getRandomImage(i + 701),
+  title: "Tişört",
+  description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.",
+  oldPrice: "$29.99",
+  newPrice: "$19.99",
+  rating: getRandomRating(i + 701),
+}));
+
+const shopBestsellersPantalonData = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 801,
+  image: getRandomImage(i + 801),
+  title: "Pantolon",
+  description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.",
+  oldPrice: "$89.99",
+  newPrice: "$69.99",
+  rating: getRandomRating(i + 801),
+}));
 
 const teamData = [
   {
@@ -173,4 +214,13 @@ const pricingData = [
   },
 ];
 
-export { bestsellersData, shopBestsellersData, teamData, pricingData };
+export { 
+  bestsellersData, 
+  shopBestsellersData, 
+  teamData, 
+  pricingData, 
+  shopBestsellersElbiseData, 
+  shopBestsellersCantaData, 
+  shopBestsellersTisortData, 
+  shopBestsellersPantalonData 
+};
