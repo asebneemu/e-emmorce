@@ -17,14 +17,17 @@ export const loginUser = createAsyncThunk(
     "auth/loginUser",
     async (userData, { rejectWithValue }) => {
         try {
+            console.log("Gönderilen veriler:", userData);  // Gönderilen verileri kontrol edin
             const response = await axios.post("https://workintech-fe-ecommerce.onrender.com/login", userData);
-            console.log("Sunucu Yanıtı:", response.data); // Sunucudan gelen yanıtı kontrol edin
+            console.log("Sunucudan gelen yanıt:", response.data);  // Sunucudan gelen yanıtı loglayın
             return response.data;
         } catch (error) {
+            console.error("Sunucu hatası:", error.response?.data || error.message);
             return rejectWithValue("Email veya şifre yanlış.");
         }
     }
 );
+
 
 const authSlice = createSlice({
     name: "auth",
