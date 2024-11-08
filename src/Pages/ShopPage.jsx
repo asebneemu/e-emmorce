@@ -17,9 +17,9 @@ import {
 } from '../data';
 
 export default function ShopPage() {
-    const [selectedCategory, setSelectedCategory] = useState("elbise");
+    const [selectedCategory, setSelectedCategory] = useState('elbise'); 
 
-    // Kategoriye göre gösterilecek veri setini seçiyoruz
+    // Seçilen kategoriye göre doğru veri setini seçiyoruz
     const getSelectedData = () => {
         switch (selectedCategory) {
             case "elbise":
@@ -40,10 +40,9 @@ export default function ShopPage() {
             <Navbar />
             <NavbarLine />
             <RealNavbar />
-            {/* Kategoriyi değiştiren ByChotles bileşeni */}
             <ByChotles setSelectedCategory={setSelectedCategory} />
-            {/* Seçili kategorinin verisini gösteren ShopBestsellers bileşeni */}
-            <ShopBestsellers data={getSelectedData()} />
+            {/* Seçili kategoriye göre veri ve kategori gönderiliyor */}
+            <ShopBestsellers category={selectedCategory} data={getSelectedData()} />
             <IconGrid />
             <SputnikFooter />
             <ContactSection />

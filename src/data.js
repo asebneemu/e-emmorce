@@ -44,6 +44,70 @@ const getRandomImage = (id) => {
   }
 };
 
+import e1 from "./assets/pictures/bestsellers/elbise1.jpg"
+import e2 from "./assets/pictures/bestsellers/elbise2.jpg"
+import e3 from "./assets/pictures/bestsellers/elbise3.jpg"
+import e4 from "./assets/pictures/bestsellers/elbise4.jpg"
+import e5 from "./assets/pictures/bestsellers/elbise5.jpg"
+import e6 from "./assets/pictures/bestsellers/elbise6.jpg"
+import e7 from "./assets/pictures/bestsellers/elbise7.jpg"
+
+const imagesElbise = [ e1, e2, e3, e4, e5, e6, e7 ]
+
+
+const getRandomImageElbise = (id) => {
+  const key = `elbise_image_${id}`; // Elbise için benzersiz anahtar
+  const savedImage = localStorage.getItem(key);
+
+  if (savedImage) {
+    return savedImage;
+  } else {
+    const randomImage = imagesElbise[Math.floor(Math.random() * imagesElbise.length)];
+    localStorage.setItem(key, randomImage);
+    return randomImage;
+  }
+};
+
+import t1 from "./assets/pictures/bestsellers/canta1.jpg";
+import t2 from "./assets/pictures/bestsellers/canta2.jpg";
+import t3 from "./assets/pictures/bestsellers/canta3.jpg";
+import t4 from "./assets/pictures/bestsellers/canta4.jpg";
+import t5 from "./assets/pictures/bestsellers/canta5.jpg";
+import t6 from "./assets/pictures/bestsellers/canta6.jpg";
+import t7 from "./assets/pictures/bestsellers/canta7.jpg";
+import t8 from "./assets/pictures/bestsellers/canta8.jpg";
+import t9 from "./assets/pictures/bestsellers/canta9.jpg";
+import t10 from "./assets/pictures/bestsellers/canta10.jpg";
+import t11 from "./assets/pictures/bestsellers/canta11.jpg";
+import t12 from "./assets/pictures/bestsellers/canta12.jpg";
+import t13 from "./assets/pictures/bestsellers/canta13.jpg";
+import t14 from "./assets/pictures/bestsellers/canta14.jpg";
+import t15 from "./assets/pictures/bestsellers/canta15.jpg";
+import t16 from "./assets/pictures/bestsellers/canta16.jpg";
+import t17 from "./assets/pictures/bestsellers/canta17.jpg";
+import t18 from "./assets/pictures/bestsellers/canta18.jpg";
+import t19 from "./assets/pictures/bestsellers/canta19.jpg";
+import t20 from "./assets/pictures/bestsellers/canta20.jpg";
+
+const imagesCanta = [
+  t1, t2, t3, t4, t5, t6, t7, t8, t9, t10,
+  t11, t12, t13, t14, t15, t16, t17, t18, t19, t20
+];
+
+const getRandomImageCanta = (id) => {
+  const key = `canta_image_${id}`; // Elbise için benzersiz anahtar
+  const savedImage = localStorage.getItem(key);
+
+  if (savedImage) {
+    return savedImage;
+  } else {
+    const randomImage = imagesCanta[Math.floor(Math.random() * imagesElbise.length)];
+    localStorage.setItem(key, randomImage);
+    return randomImage;
+  }
+};
+
+
 // Rastgele bir rating değeri oluşturma fonksiyonu (0.1 ile 5.0 arasında olacak şekilde)
 const getRandomRating = (id) => {
   const key = `product_rating_${id}`;
@@ -90,9 +154,9 @@ for (let i = 1; i <= totalShopBestsellers; i++) {
 }
 
 // Yeni veri setleri (elbise, çanta, tişört ve pantolon için)
-const shopBestsellersElbiseData = Array.from({ length: 20 }, (_, i) => ({
+const shopBestsellersElbiseData = Array.from({ length: 30 }, (_, i) => ({
   id: i + 501,
-  image: getRandomImage(i + 501),
+  image: getRandomImageElbise(i + 501),
   title: "Elbise",
   description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.",
   oldPrice: "$69.99",
@@ -100,9 +164,9 @@ const shopBestsellersElbiseData = Array.from({ length: 20 }, (_, i) => ({
   rating: getRandomRating(i + 501),
 }));
 
-const shopBestsellersCantaData = Array.from({ length: 20 }, (_, i) => ({
+const shopBestsellersCantaData = Array.from({ length: 50 }, (_, i) => ({
   id: i + 601,
-  image: getRandomImage(i + 601),
+  image: getRandomImageCanta(i + 601),
   title: "Çanta",
   description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.",
   oldPrice: "$79.99",

@@ -4,7 +4,7 @@ import FavoriteButton from '../../components/Buttons/FavoriteButton';
 import AddToCartButton from '../../components/Buttons/AddToCartButton';
 import StarRating from '../../components/Buttons/StarRating';
 
-export default function ShopBestsellers({ data }) {
+export default function ShopBestsellers({ category, data }) {
     const itemsPerPage = 12;
     const totalPages = Math.ceil(data.length / itemsPerPage);
     const [currentPage, setCurrentPage] = useState(1);
@@ -18,34 +18,25 @@ export default function ShopBestsellers({ data }) {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const renderPageNumbers = () => {
-        let pages = [];
-        for (let i = 1; i <= totalPages; i++) {
-            pages.push(
-                <button
-                    key={i}
-                    className={`border border-gray-400 px-4 py-2 text-lg font-semibold rounded ${currentPage === i ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
-                    onClick={() => changePage(i)}
-                >
-                    {i}
-                </button>
-            );
-        }
-        return pages;
+    // Kategori başlıklarını belirlemek için bir nesne kullanıyoruz
+    const categoryTitles = {
+        elbise: "Elbise Koleksiyonu",
+        canta: "Çanta Koleksiyonu",
+        tisort: "Tişört Koleksiyonu",
+        pantalon: "Pantolon Koleksiyonu",
     };
 
     return (
         <div className="flex justify-center items-center p-4 my-20">
             <div className="w-[95%] rounded-lg p-6">
                 <div className="mb-4 flex flex-col gap-10 w-[70%] mx-auto">
-                    <h2 className="text-4xl font-bold mb-2 text-center">Shop Sayfasındayız Beyler</h2>
-                    <p className="text-2xl text-gray-600 text-center">Problems trying to resolve the conflict between</p>
+                    <h2 className="text-4xl font-bold mb-2 text-center">{categoryTitles[category]}</h2>
                 </div>
 
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {data.slice(startIndex, endIndex).map((product) => (
                         <div key={product.id} className="flex flex-col items-center p-4 bg-white rounded-lg relative">
-                            <Link to={`/product-page/${product.id}`} className="w-full">
+                            <Link to={`/products/${category}/${product.id}`} className="w-full">
                                 <div className="flex flex-col items-center">
                                     <div className="w-full h-64 mb-4 rounded overflow-hidden relative">
                                         <img 
@@ -92,7 +83,15 @@ export default function ShopBestsellers({ data }) {
                         Previous
                     </button>
 
-                    {renderPageNumbers()}
+                    {[...Array(totalPages)].map((_, i) => (
+                        <button
+                            key={i + 1}
+                            className={`border border-gray-400 px-4 py-2 text-lg font-semibold rounded ${currentPage === i + 1 ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
+                            onClick={() => changePage(i + 1)}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
 
                     <button
                         className="border border-gray-400 px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded"
