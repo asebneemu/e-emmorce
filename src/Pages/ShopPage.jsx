@@ -9,15 +9,15 @@ import ContactSection from '../components/ContactSection';
 import FooterLastPart from '../components/FooterLastPart';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import ShopBestsellers from '../context/ShopContext/ShopBestsellers';
-import { 
-    shopBestsellersElbiseData, 
-    shopBestsellersCantaData, 
-    shopBestsellersTisortData, 
-    shopBestsellersPantalonData 
+import {
+    shopBestsellersElbiseData,
+    shopBestsellersCantaData,
+    shopBestsellersTisortData,
+    shopBestsellersPantalonData
 } from '../data';
 
 export default function ShopPage() {
-    const [selectedCategory, setSelectedCategory] = useState('elbise'); 
+    const [selectedCategory, setSelectedCategory] = useState('elbise');
 
     // Seçilen kategoriye göre doğru veri setini seçiyoruz
     const getSelectedData = () => {
@@ -40,7 +40,13 @@ export default function ShopPage() {
             <Navbar />
             <NavbarLine />
             <RealNavbar />
-            <ByChotles setSelectedCategory={setSelectedCategory} />
+            <ByChotles
+                setSelectedCategory={setSelectedCategory}
+                elbiseData={shopBestsellersElbiseData}
+                cantaData={shopBestsellersCantaData}
+                tisortData={shopBestsellersTisortData}
+                pantalonData={shopBestsellersPantalonData}
+            />
             {/* Seçili kategoriye göre veri ve kategori gönderiliyor */}
             <ShopBestsellers category={selectedCategory} data={getSelectedData()} />
             <IconGrid />
