@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import resim1 from '../../assets/pictures/bestsellers/elbise.jpg';
 import resim2 from '../../assets/pictures/bestsellers/canta.jpg';
 import resim3 from '../../assets/pictures/bestsellers/tisort.avif';

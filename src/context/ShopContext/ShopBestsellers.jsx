@@ -9,6 +9,7 @@ export default function ShopBestsellers({ category, data }) {
     const itemsPerPage = 12;
     const totalPages = Math.ceil(data.length / itemsPerPage);
     const [currentPage, setCurrentPage] = useState(1);
+    const [sortOption, setSortOption] = useState('recommended'); // Sıralama durumu
 
     const changePage = (pageNumber) => {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -27,15 +28,46 @@ export default function ShopBestsellers({ category, data }) {
         pantalon: "Pantolon Koleksiyonu",
     };
 
+    // Sıralama seçeneklerini işleyen fonksiyon
+    const sortedData = () => {
+        switch (sortOption) {
+            case 'rating':
+                return [...data].sort((a, b) => b.rating - a.rating);
+            case 'priceAsc':
+                return [...data].sort((a, b) => parseFloat(a.newPrice.replace('$', '')) - parseFloat(b.newPrice.replace('$', '')));
+            case 'priceDesc':
+                return [...data].sort((a, b) => parseFloat(b.newPrice.replace('$', '')) - parseFloat(a.newPrice.replace('$', '')));
+            default:
+                return data; // Önerilen sıralama (varsayılan sıra)
+        }
+    };
+
     return (
         <div className="flex justify-center items-center p-4 my-20">
             <div className="w-[95%] rounded-lg p-6">
-                <div className="mb-4 flex flex-col gap-10 w-[70%] mx-auto">
-                    <h2 className="text-4xl font-bold mb-2 text-center">{categoryTitles[category]}</h2>
+                <div className="mb-4 flex justify-between items-center w-[70%] mx-auto">
+                    {/* Başlığı sola yaslamak için */}
+                    <h2 className="text-4xl font-bold text-left">{categoryTitles[category]}</h2>
+                    
+                    {/* Sıralama seçeneği sağa yaslı */}
+                    <div className="text-right">
+                        <label htmlFor="sort" className="mr-2 font-semibold">Sırala:</label>
+                        <select
+                            id="sort"
+                            className="border px-4 py-2 rounded"
+                            value={sortOption}
+                            onChange={(e) => setSortOption(e.target.value)}
+                        >
+                            <option value="recommended">Önerilen</option>
+                            <option value="rating">Puana Göre</option>
+                            <option value="priceAsc">Fiyata Göre (Artan)</option>
+                            <option value="priceDesc">Fiyata Göre (Azalan)</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                    {data.slice(startIndex, endIndex).map((product) => (
+                    {sortedData().slice(startIndex, endIndex).map((product) => (
                         <div key={product.id} className="flex flex-col items-center p-4 bg-white rounded-lg relative">
                             <Link to={`/products/${category}/${product.id}`} className="w-full">
                                 <div className="flex flex-col items-center">

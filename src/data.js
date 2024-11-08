@@ -194,55 +194,55 @@ for (let i = 1; i <= totalShopBestsellers; i++) {
 
 // Her kategori için veri setini oluştur
 // Güncellenmiş veri setleri (price ve oldPrice değerleri için)
-const shopBestsellersElbiseData = Array.from({ length: imagesElbise.length }, (_, i) => {
-  const price = getRandomPrice(i + 501);
+const shopBestsellersElbiseData = Array.from({ length: 25 }, (_, i) => {
+  const price = getRandomPrice(i);
   return {
-    id: i + 501,
-    image: getRandomImageByCategory("elbise", i + 501),
+    id: i,
+    image: getRandomImageByCategory("elbise", i),
     title: "Elbise",
     description: "Elbise için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`, // oldPrice, price + 20 olacak
     newPrice: `$${price.toFixed(2)}`,
-    rating: getRandomRating(i + 501),
+    rating: getRandomRating(i),
   };
 });
 
-const shopBestsellersCantaData = Array.from({ length: imagesCanta.length }, (_, i) => {
-  const price = getRandomPrice(i + 601);
+const shopBestsellersCantaData = Array.from({ length: 40 }, (_, i) => {
+  const price = getRandomPrice(i);
   return {
-    id: i + 601,
-    image: getRandomImageByCategory("canta", i + 601),
+    id: i,
+    image: getRandomImageByCategory("canta", i),
     title: "Çanta",
     description: "Çanta için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,
     newPrice: `$${price.toFixed(2)}`,
-    rating: getRandomRating(i + 601),
+    rating: getRandomRating(i),
   };
 });
 
-const shopBestsellersTisortData = Array.from({ length: imagesTisort.length }, (_, i) => {
-  const price = getRandomPrice(i + 701);
+const shopBestsellersTisortData = Array.from({ length: 20 }, (_, i) => {
+  const price = getRandomPrice(i);
   return {
-    id: i + 701,
-    image: getRandomImageByCategory("tisort", i + 701),
+    id: i,
+    image: getRandomImageByCategory("tisort", i),
     title: "Tişört",
     description: "Tişört için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,
     newPrice: `$${price.toFixed(2)}`,
-    rating: getRandomRating(i + 701),
+    rating: getRandomRating(i),
   };
 });
 
-const shopBestsellersPantalonData = Array.from({ length: imagesPantalon.length }, (_, i) => {
-  const price = getRandomPrice(i + 801);
+const shopBestsellersPantalonData = Array.from({ length: 15 }, (_, i) => {
+  const price = getRandomPrice(i);
   return {
-    id: i + 801,
-    image: getRandomImageByCategory("pantalon", i + 801),
+    id: i,
+    image: getRandomImageByCategory("pantalon", i),
     title: "Pantolon",
     description: "Pantolon için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,
     newPrice: `$${price.toFixed(2)}`,
-    rating: getRandomRating(i + 801),
+    rating: getRandomRating(i),
   };
 });
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ByChotles from '../context/ShopContext/ByChotles';
 import IconGrid from '../components/IconGrid';
 import Navbar from '../components/Navbar';
@@ -17,7 +17,15 @@ import {
 } from '../data';
 
 export default function ShopPage() {
-    const [selectedCategory, setSelectedCategory] = useState('elbise');
+    // İlk başta localStorage'dan değer alıyoruz, yoksa 'elbise' kategorisine ayarlıyoruz
+    const [selectedCategory, setSelectedCategory] = useState(() => {
+        return localStorage.getItem('selectedCategory') || 'elbise';
+    });
+
+    // selectedCategory değiştiğinde localStorage'a kaydediyoruz
+    useEffect(() => {
+        localStorage.setItem('selectedCategory', selectedCategory);
+    }, [selectedCategory]);
 
     // Seçilen kategoriye göre doğru veri setini seçiyoruz
     const getSelectedData = () => {
