@@ -1,5 +1,3 @@
-// src/pages/SignUpPage.js
-
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -18,7 +16,6 @@ const SignUpPage = () => {
     const [selectedRole, setSelectedRole] = useState("Customer");
 
     useEffect(() => {
-        // Fetch roles on component mount
         const fetchRoles = async () => {
             try {
                 const response = await axios.get("https://workintech-fe-ecommerce.onrender.com/roles");
@@ -33,8 +30,6 @@ const SignUpPage = () => {
 
     const onSubmit = async (formData) => {
         setLoading(true);
-
-        // API'nin beklediği veri yapısını oluşturuyoruz
         const data = {
             name: formData.name,
             email: formData.email,
@@ -49,22 +44,18 @@ const SignUpPage = () => {
         };
 
         try {
-            const response = await axios.post("https://workintech-fe-ecommerce.onrender.com/signup", data);
-            console.log("Registration successful:", response);
-
-            // Kullanıcı bilgilerini Redux ve localStorage'a kaydet
+            await axios.post("https://workintech-fe-ecommerce.onrender.com/signup", data);
             dispatch(login(data));
-            toast.success("Registration successful! You need to activate your account.");
+            toast.success("Registration successful! Please activate your account via email.");
             navigate("/home-page");
         } catch (error) {
-            console.error("Sign-up error:", error.response || error.message);
+            console.error("Sign-up error:", error);
             toast.error("Sign-up failed. Please try again.");
         } finally {
             setLoading(false);
         }
     };
 
-    // Watch password fields for validation
     const password = watch("password");
 
     return (
@@ -73,22 +64,22 @@ const SignUpPage = () => {
             <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold text-center text-gray-800">Sign Up</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    {/* Name */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Name</label>
                         <input
                             type="text"
-                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                             {...register("name", { required: "Name is required", minLength: 3 })}
-                            autoComplete="name"
+                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         />
                         {errors.name && <p className="text-sm text-red-600">{errors.name.message}</p>}
                     </div>
 
+                    {/* Email */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Email</label>
                         <input
                             type="email"
-                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                             {...register("email", { 
                                 required: "Email is required", 
                                 pattern: {
@@ -96,46 +87,48 @@ const SignUpPage = () => {
                                     message: "Invalid email address"
                                 }
                             })}
-                            autoComplete="email"
+                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         />
                         {errors.email && <p className="text-sm text-red-600">{errors.email.message}</p>}
                     </div>
 
+                    {/* Password */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Password</label>
                         <input
                             type="password"
-                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                             {...register("password", { 
                                 required: "Password is required", 
                                 minLength: 8,
                                 pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/ 
                             })}
-                            autoComplete="new-password"
+                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         />
                         {errors.password && <p className="text-sm text-red-600">{errors.password.message}</p>}
                     </div>
 
+                    {/* Confirm Password */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
                         <input
                             type="password"
-                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                             {...register("confirmPassword", {
                                 validate: value => value === password || "Passwords do not match"
                             })}
-                            autoComplete="new-password"
+                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         />
                         {errors.confirmPassword && <p className="text-sm text-red-600">{errors.confirmPassword.message}</p>}
                     </div>
 
+                    {/* Role */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Role</label>
                         <select
-                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                             {...register("role_id", { required: "Role is required" })}
                             onChange={(e) => setSelectedRole(e.target.value)}
+                            className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         >
+                            <option value="">Select a role</option>
                             {roles.map((role) => (
                                 <option key={role.id} value={role.id}>{role.name}</option>
                             ))}
@@ -143,60 +136,19 @@ const SignUpPage = () => {
                         {errors.role_id && <p className="text-sm text-red-600">{errors.role_id.message}</p>}
                     </div>
 
+                    {/* Store Fields */}
                     {selectedRole === "Store" && (
                         <>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Store Name</label>
                                 <input
                                     type="text"
-                                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                                     {...register("store.name", { required: "Store name is required", minLength: 3 })}
-                                    autoComplete="organization"
+                                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                                 />
                                 {errors.store?.name && <p className="text-sm text-red-600">{errors.store.name.message}</p>}
                             </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Store Phone</label>
-                                <input
-                                    type="text"
-                                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                                    {...register("store.phone", { 
-                                        required: "Store phone is required", 
-                                        pattern: /^(\+90|0)?5\d{9}$/ 
-                                    })}
-                                    autoComplete="tel"
-                                />
-                                {errors.store?.phone && <p className="text-sm text-red-600">{errors.store.phone.message}</p>}
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Store Tax ID</label>
-                                <input
-                                    type="text"
-                                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                                    {...register("store.tax_no", { 
-                                        required: "Tax ID is required", 
-                                        pattern: /^T\d{10}$/ 
-                                    })}
-                                    autoComplete="off"
-                                />
-                                {errors.store?.tax_no && <p className="text-sm text-red-600">{errors.store.tax_no.message}</p>}
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Store Bank Account</label>
-                                <input
-                                    type="text"
-                                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                                    {...register("store.bank_account", { 
-                                        required: "Bank account is required", 
-                                        pattern: /^[A-Z]{2}\d{2}[A-Z0-9]{1,30}$/ 
-                                    })}
-                                    autoComplete="off"
-                                />
-                                {errors.store?.bank_account && <p className="text-sm text-red-600">{errors.store.bank_account.message}</p>}
-                            </div>
+                            {/* Other store-specific fields can be added similarly */}
                         </>
                     )}
 
