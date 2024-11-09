@@ -84,15 +84,21 @@ export default function ProductPage() {
         data = rastgeleData;
     }
 
-    // İlgili veri setinden ürünü bul
-    const product = data.find((item) => item.id === parseInt(id, 10));
+    // İlgili veri setinden ürünü bul (rastgeleData ve diğer veri setleri için)
+    let product;
+    if (data === rastgeleData) {
+        product = data.find((item) => item.id === parseInt(id, 10));
+    } else {
+        product = data.find((item) => item.id === id);
+    }
+
 
     return (
         <div>
             <Navbar />
             <NavbarLine />
             <RealNavbar />
-            <Product product={product} />
+            {product ? <Product product={product} /> : <p>Ürün bulunamadı.</p>}
             <SputnikFooter />
             <ContactSection />
             <FooterLastPart />

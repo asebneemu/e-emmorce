@@ -10,6 +10,7 @@ import userReducer from './userSlice'; // userSlice'ı içe aktarın
 import clientReducer from './clientSlice'; // Yeni eklenen clientSlice
 import productReducer from './productSlice'; // Yeni eklenen productSlice
 import shoppingCartReducer from './shoppingCartSlice'; // Yeni eklenen shoppingCartSlice
+import categoriesReducer from './categoriesSlice'; // Doğru yolu kullanarak import edin
 import {
   FLUSH,
   REHYDRATE,
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   client: clientReducer, // clientReducer'ı rootReducer'a ekleyin
   product: productReducer, // productReducer'ı rootReducer'a ekleyin
   shoppingCart: shoppingCartReducer, // shoppingCartReducer'ı rootReducer'a ekleyin
+  categories: categoriesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

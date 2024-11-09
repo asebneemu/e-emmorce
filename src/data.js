@@ -31,23 +31,9 @@ import c2 from "./assets/pictures/bestsellers/canta2.jpg";
 import c3 from "./assets/pictures/bestsellers/canta3.jpg";
 import c4 from "./assets/pictures/bestsellers/canta4.jpg";
 import c5 from "./assets/pictures/bestsellers/canta5.jpg";
-import c6 from "./assets/pictures/bestsellers/canta6.jpg";
-import c7 from "./assets/pictures/bestsellers/canta7.jpg";
-import c8 from "./assets/pictures/bestsellers/canta8.jpg";
-import c9 from "./assets/pictures/bestsellers/canta9.jpg";
-import c10 from "./assets/pictures/bestsellers/canta10.jpg";
-import c11 from "./assets/pictures/bestsellers/canta11.jpg";
-import c12 from "./assets/pictures/bestsellers/canta12.jpg";
-import c13 from "./assets/pictures/bestsellers/canta13.jpg";
-import c14 from "./assets/pictures/bestsellers/canta14.jpg";
-import c15 from "./assets/pictures/bestsellers/canta15.jpg";
-import c16 from "./assets/pictures/bestsellers/canta16.jpg";
-import c17 from "./assets/pictures/bestsellers/canta17.jpg";
-import c18 from "./assets/pictures/bestsellers/canta18.jpg";
-import c19 from "./assets/pictures/bestsellers/canta19.jpg";
-import c20 from "./assets/pictures/bestsellers/canta20.jpg";
 
-const imagesCanta = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20];
+
+const imagesCanta = [c1, c2, c3, c4, c5];
 
 // Takı resimler
 import tt1 from "./assets/pictures/bestsellers/takı1.jpg"
@@ -347,7 +333,7 @@ const rastgeleData = rastgeleImages.map((image, index) => {
 const shopBestsellersEtekData = Array.from({ length: 25 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `etek-${i}`,
     image: getRandomImageByCategory("kadın", "etek", i),
     title: "Etek",
     description: "Etek için açıklama.",
@@ -360,7 +346,7 @@ const shopBestsellersEtekData = Array.from({ length: 25 }, (_, i) => {
 const shopBestsellersElbiseData = Array.from({ length: 25 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `elbise-${i}`,
     image: getRandomImageByCategory("kadın", "elbise", i),
     title: "Elbise",
     description: "Elbise için açıklama.",
@@ -373,7 +359,7 @@ const shopBestsellersElbiseData = Array.from({ length: 25 }, (_, i) => {
 const shopBestsellersCantaData = Array.from({ length: 40 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `canta-${i}`,
     image: getRandomImageByCategory("kadın", "canta", i),
     title: "Çanta",
     description: "Çanta için açıklama.",
@@ -386,7 +372,7 @@ const shopBestsellersCantaData = Array.from({ length: 40 }, (_, i) => {
 const shopBestsellersTakiData = Array.from({ length: 40 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `taki-${i}`,
     image: getRandomImageByCategory("kadın", "taki", i),
     title: "Takı",
     description: "Takı için açıklama.",
@@ -399,7 +385,7 @@ const shopBestsellersTakiData = Array.from({ length: 40 }, (_, i) => {
 const shopBestsellersIcGiyimData = Array.from({ length: 40 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `icgiyim-${i}`,
     image: getRandomImageByCategory("kadın", "icgiyim", i),
     title: "İç Giyim",
     description: "İç Giyim için açıklama.",
@@ -412,7 +398,7 @@ const shopBestsellersIcGiyimData = Array.from({ length: 40 }, (_, i) => {
 const shopBestsellersAyakkabiData = Array.from({ length: 40 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `kayakkabi-${i}`,
     image: getRandomImageByCategory("kadın", "ayakkabi", i),
     title: "Ayakkabı",
     description: "Ayakkabı için açıklama.",
@@ -425,7 +411,7 @@ const shopBestsellersAyakkabiData = Array.from({ length: 40 }, (_, i) => {
 const shopBestsellersTisortData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `tisort-${i}`,
     image: getRandomImageByCategory("kadın", "tisort", i),
     title: "Tişört",
     description: "Tişört için açıklama.",
@@ -438,7 +424,7 @@ const shopBestsellersTisortData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersPantalonData = Array.from({ length: 15 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `pantalon-${i}`,
     image: getRandomImageByCategory("kadın", "pantalon", i),
     title: "Pantolon",
     description: "Pantolon için açıklama.",
@@ -452,7 +438,7 @@ const shopBestsellersPantalonData = Array.from({ length: 15 }, (_, i) => {
 const shopBestsellersCeketData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `ceket-${i}`,
     image: getRandomImageByCategory("erkek", "ceket", i),
     title: "Ceket",
     description: "Ceket için açıklama.",
@@ -465,7 +451,7 @@ const shopBestsellersCeketData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersGomlekData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `gomlek-${i}`,
     image: getRandomImageByCategory("erkek", "gomlek", i),
     title: "Gömlek",
     description: "Gömlek için açıklama.",
@@ -478,7 +464,7 @@ const shopBestsellersGomlekData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersTakimData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `takim-${i}`,
     image: getRandomImageByCategory("erkek", "takim", i),
     title: "Takım",
     description: "Takım için açıklama.",
@@ -491,7 +477,7 @@ const shopBestsellersTakimData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersKazakData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `kazak-${i}`,
     image: getRandomImageByCategory("erkek", "kazak", i),
     title: "Kazak",
     description: "Kazak için açıklama.",
@@ -504,7 +490,7 @@ const shopBestsellersKazakData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersErkekAyakkabiData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
+    id: `eayakkabi-${i}`,
     image: getRandomImageByCategory("erkek", "ayakkabi", i),
     title: "Ayakkabı",
     description: "Erkek Ayakkabı için açıklama.",

@@ -12,6 +12,7 @@ import resim9 from '../../assets/pictures/bestsellers/gomlekv.jpg';
 import resim10 from '../../assets/pictures/bestsellers/takimv.jpg';
 import resim11 from '../../assets/pictures/bestsellers/kazakv.jpg';
 import resim12 from '../../assets/pictures/bestsellers/ayakkabiv.jpg';
+import resim13 from '../../assets/pictures/bestsellers/takiv.jpg'
 
 const ByChotles = ({
     setSelectedCategory,
@@ -94,7 +95,7 @@ const ByChotles = ({
                     <div
                         onClick={() => setSelectedCategory("taki")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
-                        style={{ backgroundImage: `url(${resim4})` }}
+                        style={{ backgroundImage: `url(${resim13})` }}
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-0"></div>
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
