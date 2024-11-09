@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import ByChotles from '../context/ShopContext/ByChotles';
-import IconGrid from '../components/IconGrid';
-import Navbar from '../components/Navbar';
-import NavbarLine from '../components/NavbarLine';
-import RealNavbar from '../components/RealNavbar';
-import SputnikFooter from '../components/SputnikFooter';
-import ContactSection from '../components/ContactSection';
-import FooterLastPart from '../components/FooterLastPart';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
 import ShopBestsellers from '../context/ShopContext/ShopBestsellers';
+import IconGrid from '@/components/IconGrid';
+import SputnikFooter from '@/components/SputnikFooter';
+import ContactSection from '@/components/ContactSection';
+import FooterLastPart from '@/components/FooterLastPart';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+import Navbar from '@/components/Navbar';
+import NavbarLine from '@/components/NavbarLine';
+import RealNavbar from '@/components/RealNavbar';
 import {
     shopBestsellersEtekData,
     shopBestsellersElbiseData,
@@ -25,53 +25,44 @@ import {
     shopBestsellersErkekAyakkabiData,
     rastgeleData // Rastgele veri seti
 } from '../data';
+// Diğer importlar...
 
 export default function ShopPage() {
-    const [selectedCategory, setSelectedCategory] = useState('rastgele'); // Varsayılan rastgele
+    const [selectedCategory, setSelectedCategory] = useState('rastgele'); // Varsayılan olarak rastgele
+    const [selectedGender, setSelectedGender] = useState('kadın'); // Varsayılan olarak kadın
 
-    // Seçilen kategori her değiştiğinde localStorage'a kaydediyoruz
+    // Seçilen kategori değiştiğinde localStorage’a kaydediyoruz
     useEffect(() => {
         if (selectedCategory !== 'rastgele') {
             localStorage.setItem('selectedCategory', selectedCategory);
         }
     }, [selectedCategory]);
 
-    // Seçilen kategoriye göre doğru veri setini seçiyoruz
+    // Seçilen kategoriye göre veri setini döndür
     const getSelectedData = () => {
-        switch (selectedCategory) {
-            // Kadın kategorileri
-            case "etek":
-                return shopBestsellersEtekData;
-            case "elbise":
-                return shopBestsellersElbiseData;
-            case "canta":
-                return shopBestsellersCantaData;
-            case "taki":
-                return shopBestsellersTakiData;
-            case "icgiyim":
-                return shopBestsellersIcGiyimData;
-            case "ayakkabi":
-                return shopBestsellersAyakkabiData;
-            case "tisort":
-                return shopBestsellersTisortData;
-            case "pantalon":
-                return shopBestsellersPantalonData;
-
-            // Erkek kategorileri
-            case "ceket":
-                return shopBestsellersCeketData;
-            case "gomlek":
-                return shopBestsellersGomlekData;
-            case "takim":
-                return shopBestsellersTakimData;
-            case "kazak":
-                return shopBestsellersKazakData;
-            case "erkekAyakkabi":
-                return shopBestsellersErkekAyakkabiData;
-
-            // Varsayılan veri olarak rastgeleData döndür
-            default:
-                return rastgeleData;
+        if (selectedGender === "kadın") {
+            switch (selectedCategory) {
+                case "etek": return shopBestsellersEtekData;
+                case "elbise": return shopBestsellersElbiseData;
+                case "canta": return shopBestsellersCantaData;
+                case "taki": return shopBestsellersTakiData;
+                case "icgiyim": return shopBestsellersIcGiyimData;
+                case "ayakkabi": return shopBestsellersAyakkabiData;
+                case "tisort": return shopBestsellersTisortData;
+                case "pantalon": return shopBestsellersPantalonData;
+                default: return rastgeleData;
+            }
+        } else if (selectedGender === "erkek") {
+            switch (selectedCategory) {
+                case "ceket": return shopBestsellersCeketData;
+                case "gomlek": return shopBestsellersGomlekData;
+                case "takim": return shopBestsellersTakimData;
+                case "kazak": return shopBestsellersKazakData;
+                case "ayakkabi": return shopBestsellersErkekAyakkabiData;
+                default: return rastgeleData;
+            }
+        } else {
+            return rastgeleData;
         }
     };
 
@@ -82,16 +73,16 @@ export default function ShopPage() {
             <RealNavbar />
             <ByChotles
                 setSelectedCategory={setSelectedCategory}
+                setSelectedGender={setSelectedGender} // Eklenen prop
+                selectedGender={selectedGender} // Eklenen prop
                 elbiseData={shopBestsellersElbiseData}
                 cantaData={shopBestsellersCantaData}
                 tisortData={shopBestsellersTisortData}
                 pantalonData={shopBestsellersPantalonData}
-
                 etekData={shopBestsellersEtekData}
                 takiData={shopBestsellersTakiData}
                 icgiyimData={shopBestsellersIcGiyimData}
                 ayakkabiData={shopBestsellersAyakkabiData}
-
                 ceketData={shopBestsellersCeketData}
                 gomlekData={shopBestsellersGomlekData}
                 takimData={shopBestsellersTakimData}
@@ -99,8 +90,11 @@ export default function ShopPage() {
                 erkekAyakkabiData={shopBestsellersErkekAyakkabiData}
                 rastgeleData={rastgeleData}
             />
-            {/* Seçili kategoriye göre veri ve kategori gönderiliyor */}
-            <ShopBestsellers category={selectedCategory} data={getSelectedData()} />
+            <ShopBestsellers
+                gender={selectedGender} // Eklenen prop
+                category={selectedCategory}
+                data={getSelectedData()}
+            />
             <IconGrid />
             <SputnikFooter />
             <ContactSection />

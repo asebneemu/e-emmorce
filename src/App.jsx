@@ -29,9 +29,10 @@ function App() {
         <Route path="/contact-page" element={<ContactPage />} />
         <Route path="/team-page" element={<TeamPage />} />
         <Route path="/pricing-page" element={<PricingPage />} />
-        <Route path="/products/:category/:id" element={<ProductPage />} />
+        <Route path="/products/:gender/:category/:id" element={<ProductPage />} />
         <Route path="/bestseller-product-page/:id" element={<BestsellerProductPage />} /> {/* ID'ye göre yönlendirme */}
         <Route path="/user-page" element={<UserPage />} />
+        
       </Routes>
     </Router>
   );

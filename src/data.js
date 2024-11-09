@@ -318,7 +318,7 @@ for (let i = 1; i <= totalShopBestsellers; i++) {
   shopBestsellersData.push({
     id: i,
     image: getRandomImage(i + totalShopBestsellers),
-    title: "Graphic Design",
+    title: "Shop Design",
     description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
