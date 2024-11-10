@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+ 
 // src/data.js
 
 // Elbise resimleri
@@ -12,37 +13,63 @@ import e7 from "./assets/pictures/bestsellers/elbise7.jpg";
 
 const imagesElbise = [e1, e2, e3, e4, e5, e6, e7];
 
+// Etek resimleri
+import etek1 from "./assets/pictures/bestsellers/e1.jpg"
+import etek2 from "./assets/pictures/bestsellers/e2.jpg"
+import etek3 from "./assets/pictures/bestsellers/e3.jpg"
+import etek4 from "./assets/pictures/bestsellers/e4.jpg"
+import etek5 from "./assets/pictures/bestsellers/e5.jpg"
+import etek6 from "./assets/pictures/bestsellers/e6.jpg"
+import etek7 from "./assets/pictures/bestsellers/e7.jpg"
+import etek8 from "./assets/pictures/bestsellers/e8.jpg"
+
+const imagesEtek = [etek1,etek2,etek3,etek4,etek5,etek6,etek7,etek8]
+
 // Çanta resimleri
 import c1 from "./assets/pictures/bestsellers/canta1.jpg";
 import c2 from "./assets/pictures/bestsellers/canta2.jpg";
 import c3 from "./assets/pictures/bestsellers/canta3.jpg";
 import c4 from "./assets/pictures/bestsellers/canta4.jpg";
 import c5 from "./assets/pictures/bestsellers/canta5.jpg";
-import c6 from "./assets/pictures/bestsellers/canta6.jpg";
-import c7 from "./assets/pictures/bestsellers/canta7.jpg";
-import c8 from "./assets/pictures/bestsellers/canta8.jpg";
-import c9 from "./assets/pictures/bestsellers/canta9.jpg";
-import c10 from "./assets/pictures/bestsellers/canta10.jpg";
-import c11 from "./assets/pictures/bestsellers/canta11.jpg";
-import c12 from "./assets/pictures/bestsellers/canta12.jpg";
-import c13 from "./assets/pictures/bestsellers/canta13.jpg";
-import c14 from "./assets/pictures/bestsellers/canta14.jpg";
-import c15 from "./assets/pictures/bestsellers/canta15.jpg";
-import c16 from "./assets/pictures/bestsellers/canta16.jpg";
-import c17 from "./assets/pictures/bestsellers/canta17.jpg";
-import c18 from "./assets/pictures/bestsellers/canta18.jpg";
-import c19 from "./assets/pictures/bestsellers/canta19.jpg";
-import c20 from "./assets/pictures/bestsellers/canta20.jpg";
 
-const imagesCanta = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20];
+
+const imagesCanta = [c1, c2, c3, c4, c5];
+
+// Takı resimler
+import tt1 from "./assets/pictures/bestsellers/takı1.jpg"
+import tt2 from "./assets/pictures/bestsellers/takı2.jpg"
+import tt3 from "./assets/pictures/bestsellers/takı3.jpg"
+import tt4 from "./assets/pictures/bestsellers/takı4.jpg"
+import tt5 from "./assets/pictures/bestsellers/takı5.jpg"
+import tt6 from "./assets/pictures/bestsellers/takı6.jpg"
+
+const imagesTaki = [tt1,tt2,tt3,tt4,tt5,tt6]
+
+// İç Giyim resimler
+import ic1 from "./assets/pictures/bestsellers/ic1.jpg"
+import ic2 from "./assets/pictures/bestsellers/ic2.jpg"
+import ic3 from "./assets/pictures/bestsellers/ic3.jpg"
+import ic4 from "./assets/pictures/bestsellers/ic4.jpg"
+import ic5 from "./assets/pictures/bestsellers/ic5.jpg"
+
+const imagesIcGiyim = [ic1,ic2,ic3,ic4,ic5]
+
+// Ayakkabı resimler
+import sh1 from "./assets/pictures/bestsellers/sh1.jpg"
+import sh2 from "./assets/pictures/bestsellers/sh2.jpg"
+import sh3 from "./assets/pictures/bestsellers/sh3.jpg"
+import sh4 from "./assets/pictures/bestsellers/sh4.jpg"
+
+const imagesShoe = [sh1,sh2,sh3,sh4]
+
 
 // Tişört resimleri
-import t1 from "./assets/pictures/bestsellers/tisort1.jpg";
-import t2 from "./assets/pictures/bestsellers/tisort2.jpg";
-import t3 from "./assets/pictures/bestsellers/tisort3.jpg";
-import t4 from "./assets/pictures/bestsellers/tisort4.jpg";
+import ti1 from "./assets/pictures/bestsellers/tisort1.jpg";
+import ti2 from "./assets/pictures/bestsellers/tisort2.jpg";
+import ti3 from "./assets/pictures/bestsellers/tisort3.jpg";
+import ti4 from "./assets/pictures/bestsellers/tisort4.jpg";
 
-const imagesTisort = [t1, t2, t3, t4];
+const imagesTisort = [ti1, ti2, ti3, ti4];
 
 // Pantolon resimleri
 import p1 from "./assets/pictures/bestsellers/pantalon1.jpg";
@@ -52,6 +79,69 @@ import p4 from "./assets/pictures/bestsellers/pantalon4.jpg";
 import p5 from "./assets/pictures/bestsellers/pantalon5.jpg";
 
 const imagesPantalon = [p1, p2, p3, p4, p5];
+
+// Ceket kategorisi resimleri
+import cc1 from "./assets/pictures/bestsellers/ceket1.jpg";
+import cc2 from "./assets/pictures/bestsellers/ceket2.jpg";
+import cc3 from "./assets/pictures/bestsellers/ceket3.jpg";
+import cc4 from "./assets/pictures/bestsellers/ceket4.jpg";
+import cc5 from "./assets/pictures/bestsellers/ceket5.jpg";
+
+const imagesCeket = [cc1, cc2, cc3, cc4, cc5];
+
+// Gömlek kategorisi resimleri
+import g1 from "./assets/pictures/bestsellers/gomlek1.jpg";
+import g2 from "./assets/pictures/bestsellers/gomlek2.jpg";
+import g3 from "./assets/pictures/bestsellers/gomlek3.jpg";
+import g4 from "./assets/pictures/bestsellers/gomlek4.jpg";
+import g5 from "./assets/pictures/bestsellers/gomlek5.jpg";
+
+const imagesGomlek = [g1, g2, g3, g4, g5];
+
+// Takım kategorisi resimleri
+import t1 from "./assets/pictures/bestsellers/takim1.jpg";
+import t2 from "./assets/pictures/bestsellers/takim2.jpg";
+import t3 from "./assets/pictures/bestsellers/takim3.jpg";
+import t4 from "./assets/pictures/bestsellers/takim4.jpg";
+import t5 from "./assets/pictures/bestsellers/takim5.jpg";
+
+const imagesTakim = [t1, t2, t3, t4, t5];
+
+// Kazak kategorisi resimleri
+import ka1 from "./assets/pictures/bestsellers/kazak1.jpg";
+import ka2 from "./assets/pictures/bestsellers/kazak2.jpg";
+import ka3 from "./assets/pictures/bestsellers/kazak3.jpg";
+import ka4 from "./assets/pictures/bestsellers/kazak4.jpg";
+import ka5 from "./assets/pictures/bestsellers/kazak5.jpg";
+
+const imagesKazak = [ka1, ka2, ka3, ka4, ka5];
+
+// Ayakkabı kategorisi resimleri (erkek)
+import a1 from "./assets/pictures/bestsellers/ayakkabi1.jpg";
+import a2 from "./assets/pictures/bestsellers/ayakkabi2.jpg";
+import a3 from "./assets/pictures/bestsellers/ayakkabi3.jpg";
+import a4 from "./assets/pictures/bestsellers/ayakkabi4.jpg";
+import a5 from "./assets/pictures/bestsellers/ayakkabi5.jpg";
+
+const imagesErkekShoe = [a1, a2, a3, a4, a5];
+
+const rastgeleImages = [
+  imagesElbise[Math.floor(Math.random() * imagesElbise.length)],
+  imagesEtek[Math.floor(Math.random() * imagesEtek.length)],
+  imagesCanta[Math.floor(Math.random() * imagesCanta.length)],
+  imagesTaki[Math.floor(Math.random() * imagesTaki.length)],
+  imagesIcGiyim[Math.floor(Math.random() * imagesIcGiyim.length)],
+  imagesShoe[Math.floor(Math.random() * imagesShoe.length)],
+  imagesTisort[Math.floor(Math.random() * imagesTisort.length)],
+  imagesPantalon[Math.floor(Math.random() * imagesPantalon.length)],
+  imagesCeket[Math.floor(Math.random() * imagesCeket.length)],
+  imagesGomlek[Math.floor(Math.random() * imagesGomlek.length)],
+  imagesTakim[Math.floor(Math.random() * imagesTakim.length)],
+  imagesKazak[Math.floor(Math.random() * imagesKazak.length)],
+  imagesErkekShoe[Math.floor(Math.random() * imagesErkekShoe.length)]
+];
+
+
 
 import team01 from "./assets/team/team1.jfif";
 import team02 from "./assets/team/team2.jfif";
@@ -85,37 +175,68 @@ const images = [
   k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
 ];
 // Rastgele resim seçme fonksiyonları
-const getRandomImageByCategory = (category, id) => {
+const getRandomImageByCategory = (gender, category, id) => {
   let images = [];
-  switch (category) {
-    case "elbise":
-      images = imagesElbise;
-      break;
-    case "canta":
-      images = imagesCanta;
-      break;
-    case "tisort":
-      images = imagesTisort;
-      break;
-    case "pantalon":
-      images = imagesPantalon;
-      break;
-    default:
-      images = imagesElbise; // Varsayılan kategori elbise olabilir
+
+  if (gender === "kadın") {
+    // Kadın kategorileri
+    switch (category) {
+      case "etek":
+        images = imagesEtek;
+        break;
+      case "elbise":
+        images = imagesElbise;
+        break;
+      case "canta":
+        images = imagesCanta;
+        break;
+      case "taki":
+        images = imagesTaki;
+        break;
+      case "icgiyim":
+        images = imagesIcGiyim;
+        break;
+      case "ayakkabi":
+        images = imagesShoe;
+        break;
+      case "tisort":
+        images = imagesTisort;
+        break;
+      case "pantalon":
+        images = imagesPantalon;
+        break;
+      default:
+        images = imagesElbise; // Varsayılan kategori elbise
+    }
+  } else if (gender === "erkek") {
+    // Erkek kategorileri
+    switch (category) {
+      case "ceket":
+        images = imagesCeket;
+        break;
+      case "gomlek":
+        images = imagesGomlek;
+        break;
+      case "takim":
+        images = imagesTakim;
+        break;
+      case "kazak":
+        images = imagesKazak;
+        break;
+      case "erkekAyakkabi":
+        images = imagesErkekShoe;
+        break;
+      default:
+        images = imagesCeket; // Varsayılan kategori ceket
+    }
   }
 
-  // Resmi localStorage'a kaydetmek için id kullanarak benzersiz bir anahtar oluşturun
-  const key = `${category}_image_${id}`;
-  const savedImage = localStorage.getItem(key);
-
-  if (savedImage) {
-    return savedImage;
-  } else {
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    localStorage.setItem(key, randomImage);
-    return randomImage;
-  }
+  // Rastgele bir resim seçmek için
+  return images.length ? images[Math.floor(Math.random() * images.length)] : null;
 };
+
+
+
 
 // Rastgele bir resim seçme fonksiyonu (sabit kalması için localStorage kullanarak)
 const getRandomImage = (id) => {
@@ -183,7 +304,7 @@ for (let i = 1; i <= totalShopBestsellers; i++) {
   shopBestsellersData.push({
     id: i,
     image: getRandomImage(i + totalShopBestsellers),
-    title: "Graphic Design",
+    title: "Shop Design",
     description: "Product description goes here. Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
     oldPrice: "$69.99",
     newPrice: "$49.99",
@@ -191,17 +312,45 @@ for (let i = 1; i <= totalShopBestsellers; i++) {
   });
 }
 
+const rastgeleData = rastgeleImages.map((image, index) => {
+  const price = getRandomPrice(index);
+  return {
+    id: index + 1,
+    image,
+    title: "Random Product",
+    description: "Bu ürün rastgele seçilmiştir.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(index),
+  };
+});
+
+// KADIN BÖLÜMÜ
 
 // Her kategori için veri setini oluştur
 // Güncellenmiş veri setleri (price ve oldPrice değerleri için)
+// Kadın kategorisi için veriler
+const shopBestsellersEtekData = Array.from({ length: 25 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `etek-${i}`,
+    image: getRandomImageByCategory("kadın", "etek", i),
+    title: "Etek",
+    description: "Etek için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
 const shopBestsellersElbiseData = Array.from({ length: 25 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
-    image: getRandomImageByCategory("elbise", i),
+    id: `elbise-${i}`,
+    image: getRandomImageByCategory("kadın", "elbise", i),
     title: "Elbise",
     description: "Elbise için açıklama.",
-    oldPrice: `$${(price + 20).toFixed(2)}`, // oldPrice, price + 20 olacak
+    oldPrice: `$${(price + 20).toFixed(2)}`,
     newPrice: `$${price.toFixed(2)}`,
     rating: getRandomRating(i),
   };
@@ -210,10 +359,49 @@ const shopBestsellersElbiseData = Array.from({ length: 25 }, (_, i) => {
 const shopBestsellersCantaData = Array.from({ length: 40 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
-    image: getRandomImageByCategory("canta", i),
+    id: `canta-${i}`,
+    image: getRandomImageByCategory("kadın", "canta", i),
     title: "Çanta",
     description: "Çanta için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersTakiData = Array.from({ length: 40 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `taki-${i}`,
+    image: getRandomImageByCategory("kadın", "taki", i),
+    title: "Takı",
+    description: "Takı için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersIcGiyimData = Array.from({ length: 40 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `icgiyim-${i}`,
+    image: getRandomImageByCategory("kadın", "icgiyim", i),
+    title: "İç Giyim",
+    description: "İç Giyim için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersAyakkabiData = Array.from({ length: 40 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `kayakkabi-${i}`,
+    image: getRandomImageByCategory("kadın", "ayakkabi", i),
+    title: "Ayakkabı",
+    description: "Ayakkabı için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,
     newPrice: `$${price.toFixed(2)}`,
     rating: getRandomRating(i),
@@ -223,8 +411,8 @@ const shopBestsellersCantaData = Array.from({ length: 40 }, (_, i) => {
 const shopBestsellersTisortData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
-    image: getRandomImageByCategory("tisort", i),
+    id: `tisort-${i}`,
+    image: getRandomImageByCategory("kadın", "tisort", i),
     title: "Tişört",
     description: "Tişört için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,
@@ -236,8 +424,8 @@ const shopBestsellersTisortData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersPantalonData = Array.from({ length: 15 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: i,
-    image: getRandomImageByCategory("pantalon", i),
+    id: `pantalon-${i}`,
+    image: getRandomImageByCategory("kadın", "pantalon", i),
     title: "Pantolon",
     description: "Pantolon için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,
@@ -245,6 +433,74 @@ const shopBestsellersPantalonData = Array.from({ length: 15 }, (_, i) => {
     rating: getRandomRating(i),
   };
 });
+
+// Erkek kategorisi için veriler
+const shopBestsellersCeketData = Array.from({ length: 20 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `ceket-${i}`,
+    image: getRandomImageByCategory("erkek", "ceket", i),
+    title: "Ceket",
+    description: "Ceket için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersGomlekData = Array.from({ length: 20 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `gomlek-${i}`,
+    image: getRandomImageByCategory("erkek", "gomlek", i),
+    title: "Gömlek",
+    description: "Gömlek için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersTakimData = Array.from({ length: 20 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `takim-${i}`,
+    image: getRandomImageByCategory("erkek", "takim", i),
+    title: "Takım",
+    description: "Takım için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersKazakData = Array.from({ length: 20 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `kazak-${i}`,
+    image: getRandomImageByCategory("erkek", "kazak", i),
+    title: "Kazak",
+    description: "Kazak için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+const shopBestsellersErkekAyakkabiData = Array.from({ length: 20 }, (_, i) => {
+  const price = getRandomPrice(i);
+  return {
+    id: `erkekAyakkabi-${i}`,
+    image: getRandomImageByCategory("erkek", "erkekAyakkabi", i),
+    title: "Ayakkabı",
+    description: "Erkek Ayakkabı için açıklama.",
+    oldPrice: `$${(price + 20).toFixed(2)}`,
+    newPrice: `$${price.toFixed(2)}`,
+    rating: getRandomRating(i),
+  };
+});
+
+
 
 // Diğer sabit veriler
 const teamData = [
@@ -334,10 +590,22 @@ const pricingData = [
 export { 
   bestsellersData, 
   shopBestsellersData, 
-  shopBestsellersElbiseData, 
-  shopBestsellersCantaData, 
-  shopBestsellersTisortData, 
+  shopBestsellersEtekData,
+  shopBestsellersElbiseData,
+  shopBestsellersCantaData,
+  shopBestsellersTakiData,
+  shopBestsellersIcGiyimData,
+  shopBestsellersAyakkabiData,
+  shopBestsellersTisortData,
   shopBestsellersPantalonData,
+
+  shopBestsellersCeketData,
+  shopBestsellersGomlekData,
+  shopBestsellersTakimData,
+  shopBestsellersKazakData,
+  shopBestsellersErkekAyakkabiData,
+
+  rastgeleData,
   teamData,
   pricingData 
 };

@@ -12,6 +12,7 @@ import ProductPage from './Pages/ProductPage';
 import UserPage from './Pages/UserPage';
 import BestsellerProductPage from './Pages/BestsellerProductPage';
 import SignUpPage from './Pages/SignUpPage';
+import ShopPageCategories from "./Pages/ShopPageCategories"
 
 function App() {
   
@@ -23,15 +24,17 @@ function App() {
         <Route path="/member-page" element={<MemberPage />} />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/shop-page" element={<ShopPage />} />
+        <Route path="/shop-page/:gender/:category" element={<ShopPageCategories />} />
         <Route path="/sepetim-page" element={<SepetimPage />} />
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/sepetim-page#favoriler" element={<Favoriler />} />
         <Route path="/contact-page" element={<ContactPage />} />
         <Route path="/team-page" element={<TeamPage />} />
         <Route path="/pricing-page" element={<PricingPage />} />
-        <Route path="/products/:category/:id" element={<ProductPage />} />
+        <Route path="/products/:gender/:category/:id" element={<ProductPage />} />
         <Route path="/bestseller-product-page/:id" element={<BestsellerProductPage />} /> {/* ID'ye göre yönlendirme */}
         <Route path="/user-page" element={<UserPage />} />
+        
       </Routes>
     </Router>
   );

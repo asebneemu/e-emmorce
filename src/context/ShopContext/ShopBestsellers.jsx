@@ -5,7 +5,7 @@ import FavoriteButton from '../../components/Buttons/FavoriteButton';
 import AddToCartButton from '../../components/Buttons/AddToCartButton';
 import StarRating from '../../components/Buttons/StarRating';
 
-export default function ShopBestsellers({ category, data }) {
+export default function ShopBestsellers({ gender, category, data }) {
     const itemsPerPage = 12;
     const totalPages = Math.ceil(data.length / itemsPerPage);
     const [currentPage, setCurrentPage] = useState(1);
@@ -22,10 +22,18 @@ export default function ShopBestsellers({ category, data }) {
 
     // Kategori başlıklarını belirlemek için bir nesne kullanıyoruz
     const categoryTitles = {
+        icgiyim: "İç Giyim Koleksiyonu",
+        etek: "Etek Koleksiyonu",
         elbise: "Elbise Koleksiyonu",
         canta: "Çanta Koleksiyonu",
+        taki: "Takı Koleksiyonu",
         tisort: "Tişört Koleksiyonu",
         pantalon: "Pantolon Koleksiyonu",
+        erkekAyakkabi: "Ayakkabı Koleksiyonu",
+        ceket: "Ceket Koleksiyonu",
+        gomlek: "Gömlek Koleksiyonu",
+        takim: "Takım Koleksiyonu",
+        kazak: "Kazak Koleksiyonu",
     };
 
     // Sıralama seçeneklerini işleyen fonksiyon
@@ -69,7 +77,7 @@ export default function ShopBestsellers({ category, data }) {
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {sortedData().slice(startIndex, endIndex).map((product) => (
                         <div key={product.id} className="flex flex-col items-center p-4 bg-white rounded-lg relative">
-                            <Link to={`/products/${category}/${product.id}`} className="w-full">
+                            <Link to={`/products/${gender}/${category}/${product.id}`} className="w-full">
                                 <div className="flex flex-col items-center">
                                     <div className="w-full h-64 mb-4 rounded overflow-hidden relative">
                                         <img 
