@@ -25,11 +25,13 @@ import {
     shopBestsellersErkekAyakkabiData,
     rastgeleData // Rastgele veri seti
 } from '../data';
+import { useParams } from 'react-router-dom';
 // Diğer importlar...
 
 export default function ShopPage() {
+    const { gender, category } = useParams();
     const [selectedCategory, setSelectedCategory] = useState('rastgele'); // Varsayılan olarak rastgele
-    const [selectedGender, setSelectedGender] = useState(''); // Varsayılan olarak kadın
+    const [selectedGender, setSelectedGender] = useState('kadın'); // Varsayılan olarak kadın
 
     // Seçilen kategori değiştiğinde localStorage’a kaydediyoruz
     useEffect(() => {
@@ -37,6 +39,8 @@ export default function ShopPage() {
             localStorage.setItem('selectedCategory', selectedCategory);
         }
     }, [selectedCategory]);
+
+    
 
     // Seçilen kategoriye göre veri setini döndür
     const getSelectedData = () => {

@@ -26,24 +26,24 @@ export default function DropdownButtons() {
                         {/* Kadın Sütunu */}
                         <div>
                             <h3 className="text-lg font-bold text-gray-700 mb-2">Kadın</h3>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Etek</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Elbise</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Çanta</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Takı</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">İç Giyim</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Ayakkabı</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Tişört</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Pantalon</Link>
+                            <Link to="/shop-page/kadın/etek" className="block p-1 text-gray-700 text-base">Etek</Link>
+                            <Link to="/shop-page/kadın/elbise" className="block p-1 text-gray-700 text-base">Elbise</Link>
+                            <Link to="/shop-page/kadın/çanta" className="block p-1 text-gray-700 text-base">Çanta</Link>
+                            <Link to="/shop-page/kadın/takı" className="block p-1 text-gray-700 text-base">Takı</Link>
+                            <Link to="/shop-page/kadın/iç-giyim" className="block p-1 text-gray-700 text-base">İç Giyim</Link>
+                            <Link to="/shop-page/kadın/ayakkabı" className="block p-1 text-gray-700 text-base">Ayakkabı</Link>
+                            <Link to="/shop-page/kadın/tişört" className="block p-1 text-gray-700 text-base">Tişört</Link>
+                            <Link to="/shop-page/kadın/pantalon" className="block p-1 text-gray-700 text-base">Pantolon</Link>
                         </div>
 
                         {/* Erkek Sütunu */}
                         <div>
                             <h3 className="text-lg font-bold text-gray-700 mb-2">Erkek</h3>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Ceket</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Gömlek</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Takım</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Kazak</Link>
-                            <Link to="#" className="block p-1 text-gray-700 text-base">Ayakkabı</Link>
+                            <Link to="/shop-page/erkek/ceket" className="block p-1 text-gray-700 text-base">Ceket</Link>
+                            <Link to="/shop-page/erkek/gömlek" className="block p-1 text-gray-700 text-base">Gömlek</Link>
+                            <Link to="/shop-page/erkek/takım" className="block p-1 text-gray-700 text-base">Takım</Link>
+                            <Link to="/shop-page/erkek/kazak" className="block p-1 text-gray-700 text-base">Kazak</Link>
+                            <Link to="/shop-page/erkek/ayakkabı" className="block p-1 text-gray-700 text-base">Ayakkabı</Link>
                         </div>
                     </div>
                 </div>

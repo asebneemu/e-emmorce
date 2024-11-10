@@ -12,6 +12,7 @@ import ProductPage from './Pages/ProductPage';
 import UserPage from './Pages/UserPage';
 import BestsellerProductPage from './Pages/BestsellerProductPage';
 import SignUpPage from './Pages/SignUpPage';
+import ShopPageCategories from "./Pages/ShopPageCategories"
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
         <Route path="/member-page" element={<MemberPage />} />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/shop-page" element={<ShopPage />} />
+        <Route path="/shop-page/:gender/:category" element={<ShopPageCategories />} />
         <Route path="/sepetim-page" element={<SepetimPage />} />
         <Route path="/about-page" element={<AboutPage />} />
         <Route path="/sepetim-page#favoriler" element={<Favoriler />} />

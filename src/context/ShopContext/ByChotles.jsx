@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import resim1 from '../../assets/pictures/bestsellers/elbise.jpg';
 import resim2 from '../../assets/pictures/bestsellers/canta.jpg';
 import resim3 from '../../assets/pictures/bestsellers/tisort.avif';
@@ -12,7 +12,7 @@ import resim9 from '../../assets/pictures/bestsellers/gomlekv.jpg';
 import resim10 from '../../assets/pictures/bestsellers/takimv.jpg';
 import resim11 from '../../assets/pictures/bestsellers/kazakv.jpg';
 import resim12 from '../../assets/pictures/bestsellers/ayakkabiv.jpg';
-import resim13 from '../../assets/pictures/bestsellers/takiv.jpg'
+import resim13 from '../../assets/pictures/bestsellers/takiv.jpg';
 
 const ByChotles = ({
     setSelectedCategory,
@@ -32,24 +32,26 @@ const ByChotles = ({
     kazakData,
     erkekAyakkabiData,
 }) => {
+    const handleCategoryClick = (gender, category) => {
+        setSelectedGender(gender);
+        setSelectedCategory(category);
+        // Sadece URL'yi güncelle
+        window.history.pushState({}, '', `/shop-page/${gender}/${category}`);
+    };
+
+
     return (
         <div className="w-full my-16 flex flex-col items-center">
             {/* Başlık Bölümü */}
             <div className="flex justify-center mb-8">
                 <h1
-                    onClick={() => {
-                        setSelectedGender("kadın");
-                        setSelectedCategory("rastgele");
-                    }}
+                    onClick={() => handleCategoryClick("kadın", "rastgele")}
                     className={`cursor-pointer text-2xl font-bold mx-4 ${selectedGender === "kadın" ? "text-black" : "text-gray-400"}`}
                 >
                     Kadın
                 </h1>
                 <h1
-                    onClick={() => {
-                        setSelectedGender("erkek");
-                        setSelectedCategory("rastgele");
-                    }}
+                    onClick={() => handleCategoryClick("erkek", "rastgele")}
                     className={`cursor-pointer text-2xl font-bold mx-4 ${selectedGender === "erkek" ? "text-black" : "text-gray-400"}`}
                 >
                     Erkek
@@ -60,7 +62,7 @@ const ByChotles = ({
             {selectedGender === "kadın" && (
                 <div className="w-[80%] mx-auto flex flex-wrap justify-center items-center gap-2">
                     <div
-                        onClick={() => setSelectedCategory("etek")}
+                        onClick={() => handleCategoryClick("kadın", "etek")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim5})` }}
                     >
@@ -71,7 +73,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("elbise")}
+                        onClick={() => handleCategoryClick("kadın", "elbise")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim1})` }}
                     >
@@ -82,7 +84,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("canta")}
+                        onClick={() => handleCategoryClick("kadın", "canta")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim2})` }}
                     >
@@ -93,7 +95,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("taki")}
+                        onClick={() => handleCategoryClick("kadın", "taki")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim13})` }}
                     >
@@ -104,7 +106,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("icgiyim")}
+                        onClick={() => handleCategoryClick("kadın", "icgiyim")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim6})` }}
                     >
@@ -115,7 +117,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("ayakkabi")}
+                        onClick={() => handleCategoryClick("kadın", "ayakkabi")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim7})` }}
                     >
@@ -126,7 +128,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("tisort")}
+                        onClick={() => handleCategoryClick("kadın", "tisort")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim3})` }}
                     >
@@ -137,7 +139,7 @@ const ByChotles = ({
                         </div>
                     </div>
                     <div
-                        onClick={() => setSelectedCategory("pantalon")}
+                        onClick={() => handleCategoryClick("kadın", "pantalon")}
                         className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${resim4})` }}
                     >
@@ -150,38 +152,58 @@ const ByChotles = ({
                 </div>
             )}
 
-            {/* Erkek Kategorisi İçerikleri */}
+            {/* Erkek Kategorisi Kartları */}
             {selectedGender === "erkek" && (
                 <div className="w-[80%] mx-auto flex flex-wrap justify-center items-center gap-2">
-                    <div onClick={() => setSelectedCategory("ceket")} className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative" style={{ backgroundImage: `url(${resim8})` }}>
+                    <div
+                        onClick={() => handleCategoryClick("erkek", "ceket")}
+                        className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
+                        style={{ backgroundImage: `url(${resim8})` }}
+                    >
                         <div className="absolute inset-0 bg-black bg-opacity-0"></div>
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                             <h2 className="text-2xl font-bold">Ceket</h2>
                             <p className="text-lg">{ceketData.length} Items</p>
                         </div>
                     </div>
-                    <div onClick={() => setSelectedCategory("gomlek")} className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative" style={{ backgroundImage: `url(${resim9})` }}>
+                    <div
+                        onClick={() => handleCategoryClick("erkek", "gomlek")}
+                        className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
+                        style={{ backgroundImage: `url(${resim9})` }}
+                    >
                         <div className="absolute inset-0 bg-black bg-opacity-0"></div>
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                             <h2 className="text-2xl font-bold">Gömlek</h2>
                             <p className="text-lg">{gomlekData.length} Items</p>
                         </div>
                     </div>
-                    <div onClick={() => setSelectedCategory("takim")} className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative" style={{ backgroundImage: `url(${resim10})` }}>
+                    <div
+                        onClick={() => handleCategoryClick("erkek", "takim")}
+                        className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
+                        style={{ backgroundImage: `url(${resim10})` }}
+                    >
                         <div className="absolute inset-0 bg-black bg-opacity-0"></div>
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                             <h2 className="text-2xl font-bold">Takım</h2>
                             <p className="text-lg">{takimData.length} Items</p>
                         </div>
                     </div>
-                    <div onClick={() => setSelectedCategory("kazak")} className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative" style={{ backgroundImage: `url(${resim11})` }}>
+                    <div
+                        onClick={() => handleCategoryClick("erkek", "kazak")}
+                        className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
+                        style={{ backgroundImage: `url(${resim11})` }}
+                    >
                         <div className="absolute inset-0 bg-black bg-opacity-0"></div>
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                             <h2 className="text-2xl font-bold">Kazak</h2>
                             <p className="text-lg">{kazakData.length} Items</p>
                         </div>
                     </div>
-                    <div onClick={() => setSelectedCategory("erkekAyakkabi")} className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative" style={{ backgroundImage: `url(${resim12})` }}>
+                    <div
+                        onClick={() => handleCategoryClick("erkek", "erkekAyakkabi")}
+                        className="cursor-pointer w-[45%] md:w-[20%] aspect-square h-[120%] bg-cover bg-center relative"
+                        style={{ backgroundImage: `url(${resim12})` }}
+                    >
                         <div className="absolute inset-0 bg-black bg-opacity-0"></div>
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                             <h2 className="text-2xl font-bold">Ayakkabı</h2>
