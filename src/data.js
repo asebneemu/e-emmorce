@@ -223,7 +223,7 @@ const getRandomImageByCategory = (gender, category, id) => {
       case "kazak":
         images = imagesKazak;
         break;
-      case "ayakkabi":
+      case "erkekAyakkabi":
         images = imagesErkekShoe;
         break;
       default:
@@ -490,8 +490,8 @@ const shopBestsellersKazakData = Array.from({ length: 20 }, (_, i) => {
 const shopBestsellersErkekAyakkabiData = Array.from({ length: 20 }, (_, i) => {
   const price = getRandomPrice(i);
   return {
-    id: `eayakkabi-${i}`,
-    image: getRandomImageByCategory("erkek", "ayakkabi", i),
+    id: `erkekAyakkabi-${i}`,
+    image: getRandomImageByCategory("erkek", "erkekAyakkabi", i),
     title: "Ayakkabı",
     description: "Erkek Ayakkabı için açıklama.",
     oldPrice: `$${(price + 20).toFixed(2)}`,

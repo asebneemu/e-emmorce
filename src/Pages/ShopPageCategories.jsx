@@ -62,7 +62,7 @@ export default function ShopPage() {
                 case "gomlek": return shopBestsellersGomlekData;
                 case "takim": return shopBestsellersTakimData;
                 case "kazak": return shopBestsellersKazakData;
-                case "ayakkabi": return shopBestsellersErkekAyakkabiData;
+                case "erkekAyakkabi": return shopBestsellersErkekAyakkabiData;
                 default: return rastgeleData;
             }
         } else {

@@ -22,10 +22,18 @@ export default function ShopBestsellers({ gender, category, data }) {
 
     // Kategori başlıklarını belirlemek için bir nesne kullanıyoruz
     const categoryTitles = {
+        icgiyim: "İç Giyim Koleksiyonu",
+        etek: "Etek Koleksiyonu",
         elbise: "Elbise Koleksiyonu",
         canta: "Çanta Koleksiyonu",
+        taki: "Takı Koleksiyonu",
         tisort: "Tişört Koleksiyonu",
         pantalon: "Pantolon Koleksiyonu",
+        erkekAyakkabi: "Ayakkabı Koleksiyonu",
+        ceket: "Ceket Koleksiyonu",
+        gomlek: "Gömlek Koleksiyonu",
+        takim: "Takım Koleksiyonu",
+        kazak: "Kazak Koleksiyonu",
     };
 
     // Sıralama seçeneklerini işleyen fonksiyon

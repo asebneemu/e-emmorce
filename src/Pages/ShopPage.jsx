@@ -29,7 +29,7 @@ import {
 
 export default function ShopPage() {
     const [selectedCategory, setSelectedCategory] = useState('rastgele'); // Varsayılan olarak rastgele
-    const [selectedGender, setSelectedGender] = useState(''); // Varsayılan olarak kadın
+    const [selectedGender, setSelectedGender] = useState('kadın'); // Varsayılan olarak kadın
 
     // Seçilen kategori değiştiğinde localStorage’a kaydediyoruz
     useEffect(() => {
@@ -58,7 +58,7 @@ export default function ShopPage() {
                 case "gomlek": return shopBestsellersGomlekData;
                 case "takim": return shopBestsellersTakimData;
                 case "kazak": return shopBestsellersKazakData;
-                case "ayakkabi": return shopBestsellersErkekAyakkabiData;
+                case "erkekAyakkabi": return shopBestsellersErkekAyakkabiData;
                 default: return rastgeleData;
             }
         } else {
